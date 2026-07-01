@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+@keyframes rvUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+@keyframes pbBlink{0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+.site-main{margin-left:248px;padding-top:38px;}
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.tm-card{border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;}
+.tm-card:hover{border-color:rgba(250,182,1,.4);transform:translateY(-3px);}
+@media (max-width:1100px){.tm-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}}
+@media (max-width:560px){.tm-grid{grid-template-columns:1fr;}}
+</style>
+</helmet>
+<div data-screen-label="Team" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="team" hint-size="100%,0"></dc-import>
+  <main class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">02 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Meet the Team</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;white-space:nowrap;">9 ENGINEERS · 2 COACHES</span>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">The People<br><span style="color:#FAB601;">Behind 22045</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:640px;margin:24px 0 0;">Nine students, one mission — each owning a discipline from CAD to outreach, carrying the robot from first sketch to the competition floor. Plus the coaches who keep it all running.</p>
+    </section>
+
+    <!-- FULL TEAM PHOTO (uncropped) -->
+    <section style="padding:clamp(34px,5vh,56px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="border:1px solid rgba(250,182,1,.22);border-radius:6px;overflow:hidden;background:#000;position:relative;">
+        <img src="assets/team-hero.png" alt="The full Power Breakers team with their competition robot and awards" style="width:100%;height:auto;display:block;">
+        <div style="position:absolute;left:16px;bottom:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#FAB601;background:rgba(10,9,8,.7);backdrop-filter:blur(4px);padding:6px 10px;border-radius:3px;">POWER BREAKERS · 2025–26 ROSTER</div>
+      </div>
+    </section>
+
+    <!-- MEMBERS -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// STUDENTS</div>
+      <div class="tm-grid">
+
+        <div class="tm-card">
+          <img src="assets/tm-tanish.jpg" alt="Tanish Gade" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">01</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">5TH YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Tanish Gade</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">Co-Captain · CAD Lead · OMF · Portfolio</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"forgets to add tolerance on every machined part he designs"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-sowmith.jpg" alt="Sowmith Kolla" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">02</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">5TH YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Sowmith Kolla</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">Co-Captain · Programming Lead</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;font-family:'JetBrains Mono',monospace;">if (velocity1 == velocity1)</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-rishaan.jpg" alt="Rishaan Chanana" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">03</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">3RD YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Rishaan Chanana</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">OMF Co-Lead · CAD Team</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"cerebral &amp; motor function powered purely by the presence of food in the room"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-vivaan.jpg" alt="Vivaan Joshi" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">04</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">3RD YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Vivaan Joshi</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">Portfolio Lead · Build · OMF</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"every picture of him looks like it belongs on the front of a Vogue magazine"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-pradhyun.jpg" alt="Pradhyun Pola" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">05</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">3RD YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Pradhyun Pola</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">OMF Co-Lead · CAD · Portfolio</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"accidentally called 'Pradhyesh' in regional portfolio — now goes by Pradhyesh at tournaments"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-divisha.jpg" alt="Divisha Kothapalli" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">06</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">4TH YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Divisha Kothapalli</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">OMF · Build · Programming</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"does not know who Mickey Mouse is and grew up without an iPad"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-aarav.jpg" alt="Aarav Ancha" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">07</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">5TH YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Aarav Ancha</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">Build Lead · OMF</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"will personally hunt you down if any unwanted picture of him on the internet is traced back to you"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <img src="assets/tm-liv.jpg" alt="Liv Puchakayala" style="width:100%;aspect-ratio:4/5;display:block;object-fit:contain;">
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">08</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">2ND YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Liv Puchakayala</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">Build · OMF · Driver</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"needs an entire court argument with evidence, rebuttals and counterarguments to convince his mom to let him attend sleepovers"</p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <image-slot id="tm-maahir" shape="rect" radius="0" style="width:100%;aspect-ratio:4/5;display:block;" placeholder="Drop Maahir's photo"></image-slot>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">09</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">1ST YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Maahir Shah</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">OMF · Programming · Portfolio</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"thought PLA was spray-paintable" <span style="color:#6E685E;font-style:normal;">· veteran of other FTC teams</span></p>
+          </div>
+        </div>
+
+        <div class="tm-card">
+          <image-slot id="tm-aarin" shape="rect" radius="0" style="width:100%;aspect-ratio:4/5;display:block;" placeholder="Drop Aarin's photo"></image-slot>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;">10</span><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;">1ST YEAR</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Aarin Mehta</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;color:#C9A24B;">OMF · CAD · Portfolio</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#6E685E;margin:6px 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">+ quote coming soon · veteran of other FTC teams</p>
+          </div>
+        </div>
+
+        <!-- OPEN SEATS -->
+        <div class="tm-card" style="border-style:dashed;">
+          <div style="width:100%;aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:repeating-linear-gradient(135deg,#0e0d0b,#0e0d0b 11px,#0a0908 11px,#0a0908 22px);border-bottom:1px dashed rgba(255,255,255,.1);">
+            <div style="width:60px;height:60px;border-radius:50%;border:1px dashed rgba(250,182,1,.4);display:flex;align-items:center;justify-content:center;font-size:30px;color:#FAB601;font-weight:300;">+</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#6E685E;">OPEN SEAT</div>
+          </div>
+          <div style="padding:20px;flex:1;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0 0 8px;color:#5d584f;">Future Member</h3><p style="font-size:13px;line-height:1.55;color:#6E685E;margin:0;">Space reserved for our next teammate.</p></div>
+        </div>
+        <div class="tm-card" style="border-style:dashed;">
+          <div style="width:100%;aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:repeating-linear-gradient(135deg,#0e0d0b,#0e0d0b 11px,#0a0908 11px,#0a0908 22px);border-bottom:1px dashed rgba(255,255,255,.1);">
+            <div style="width:60px;height:60px;border-radius:50%;border:1px dashed rgba(250,182,1,.4);display:flex;align-items:center;justify-content:center;font-size:30px;color:#FAB601;font-weight:300;">+</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#6E685E;">OPEN SEAT</div>
+          </div>
+          <div style="padding:20px;flex:1;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0 0 8px;color:#5d584f;">Future Member</h3><p style="font-size:13px;line-height:1.55;color:#6E685E;margin:0;">Space reserved for our next teammate.</p></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COACHES -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// COACHES</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="tm-coach-grid">
+        <div class="tm-card" style="flex-direction:row;align-items:stretch;">
+          <image-slot id="tm-sujan" shape="rect" radius="0" style="width:150px;flex-shrink:0;align-self:stretch;" placeholder="Sujan"></image-slot>
+          <div style="padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;align-self:flex-start;">NONTECHNICAL COACH</span>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:27px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Sujan Gade</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:auto 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"if AI can be used here, it will be used here"</p>
+          </div>
+        </div>
+        <div class="tm-card" style="flex-direction:row;align-items:stretch;">
+          <image-slot id="tm-vasu" shape="rect" radius="0" style="width:150px;flex-shrink:0;align-self:stretch;" placeholder="Vasu"></image-slot>
+          <div style="padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;border:1px solid rgba(250,182,1,.35);border-radius:30px;padding:4px 9px;align-self:flex-start;">TECHNICAL COACH</span>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:27px;text-transform:uppercase;margin:0;color:#F4F1EA;line-height:1;">Vasu Kolla</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:auto 0 0;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;font-style:italic;">"makes the greatest taquitos known to mankind"</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#5d584f;">// Drag a headshot onto any photo slot — it saves automatically. Aarav's card stays photo-free, per his request.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>

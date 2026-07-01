@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+@keyframes pbBlink{0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+.site-main{margin-left:248px;padding-top:38px;}
+.rb-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.rb-mv{width:100%;height:380px;object-fit:contain;display:block;background:#15130f;}
+@media (max-width:980px){.rb-grid{grid-template-columns:1fr;}}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}}
+</style>
+</helmet>
+<div data-screen-label="Robot" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="robot" hint-size="100%,0"></dc-import>
+  <main class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">03 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">The Robot — DECODE</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        <a href="Chassis.dc.html" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#FAB601;white-space:nowrap;text-decoration:none;" style-hover="color:#ffc62b;">CHASSIS CONCEPTS →</a>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">Apollo<br><span style="color:#FAB601;">Mk.1 → Mk.4</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:680px;margin:24px 0 0;">Four iterations across the DECODE season — each one a complete rethink of how we transfer, aim, and shoot. Explore every iteration below, then watch the team break down our State Championship robot.</p>
+    </section>
+
+    <!-- YOUTUBE INTERVIEW -->
+    <section style="padding:clamp(40px,6vh,64px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;">// FEATURED · INTERVIEW</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:stretch;" class="rb-grid">
+        <div style="border:1px solid rgba(250,182,1,.25);border-radius:6px;overflow:hidden;background:#000;aspect-ratio:16/9;">
+          <iframe src="https://www.youtube.com/embed/LHPKW3UiLIM?list=PLkZ6_Ld1x9Y8p3x74cXFLBAvVpxlIbDuX" title="Power Breakers — Apollo Mk.3 interview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#FAB601;margin-bottom:12px;">APOLLO MK.3 · STATE CHAMPIONSHIP BOT</div>
+          <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);text-transform:uppercase;line-height:.95;margin:0 0 14px;color:#F4F1EA;">Inside Our States Robot</h2>
+          <p style="font-size:14.5px;line-height:1.65;color:#C3BDB2;margin:0 0 14px;">In this interview the team walks through Apollo Mk.3 — the robot we took to the Texas State Championship. The focus: a completely revamped shooter and a turret mechanism that continuously tracks the goal's position from anywhere on the field, keeping shots accurate on the move.</p>
+          <a href="https://www.youtube.com/watch?v=LHPKW3UiLIM&amp;list=PLkZ6_Ld1x9Y8p3x74cXFLBAvVpxlIbDuX&amp;index=9" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#FAB601;text-decoration:none;" style-hover="color:#ffc62b;">▶ Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITERATIONS -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// ITERATIONS</div>
+      <div class="rb-grid">
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;">
+            <img class="rb-mv" src="assets/cad-mk1.png" alt="Apollo Mk.1 CAD render">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-01</div>
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;color:#F4F1EA;">Apollo Mk.1</h3><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#FAB601;">PROTOTYPE</span></div>
+            <p style="font-size:14.5px;line-height:1.65;color:#C3BDB2;margin:0;">Featured a <strong style="color:#F4F1EA;">scissor-lift transfer system</strong> paired with a fixed shooter whose <strong style="color:#F4F1EA;">adjustable hood</strong> let us change the shot angle on the fly.</p>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;">
+            <img class="rb-mv" src="assets/cad-mk2.png" alt="Apollo Mk.2 CAD render">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-02</div>
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;color:#F4F1EA;">Apollo Mk.2</h3><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#FAB601;">ALUMINUM v1</span></div>
+            <p style="font-size:14.5px;line-height:1.65;color:#C3BDB2;margin:0;">Switched to <strong style="color:#F4F1EA;">direct transfer</strong> and added <strong style="color:#F4F1EA;">vector wheels</strong> to prevent intake jamming. Our first venture into <strong style="color:#F4F1EA;">aluminum machining</strong>.</p>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(250,182,1,.3);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;">
+            <img class="rb-mv" src="assets/cad-mk3.png" alt="Apollo Mk.3 CAD render">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#0a0908;background:#FAB601;padding:5px 8px;border-radius:3px;">MDL-03 · ★ STATES BOT</div>
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;color:#FAB601;">Apollo Mk.3</h3><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#FAB601;">STATE CHAMPIONSHIP</span></div>
+            <p style="font-size:14.5px;line-height:1.65;color:#C3BDB2;margin:0;">A <strong style="color:#F4F1EA;">completely revamped shooter</strong> built around a <strong style="color:#F4F1EA;">turret mechanism</strong> that constantly tracks the goal's position from anywhere on the field. Featured in the interview above.</p>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;">
+            <img class="rb-mv" src="assets/cad-mk4.png" alt="Apollo Mk.4 CAD render">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-04</div>
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;color:#F4F1EA;">Apollo Mk.4</h3><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#FAB601;">PACKAGING</span></div>
+            <p style="font-size:14.5px;line-height:1.65;color:#C3BDB2;margin:0;">Added a <strong style="color:#F4F1EA;">cable chain</strong> on the turret for clean wire management, and a <strong style="color:#F4F1EA;">2-stage bevel-gear → timing-belt drivetrain</strong> for tighter packaging.</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#5d584f;line-height:1.7;">// CAD renders of each Apollo iteration.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>

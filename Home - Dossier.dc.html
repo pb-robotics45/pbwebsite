@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+::selection{background:#FAB601;color:#0a0908;}
+a{color:inherit;text-decoration:none;}
+@keyframes rvUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+@keyframes rvRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:none;}}
+@keyframes rvWidth{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+@keyframes heroIn{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+@keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+@keyframes floatHint{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+@keyframes heroPan{from{transform:scale(1.04) translateY(0);}to{transform:scale(1.04) translateY(64px);}}
+.db-sidebar{position:fixed;}
+.db-main{margin-left:248px;}
+.db-topbar{display:none;}
+@media (max-width:880px){
+  .db-sidebar{transform:translateX(-100%);transition:transform .4s cubic-bezier(.5,0,.2,1);z-index:70;}
+  .db-main{margin-left:0;}
+  .db-topbar{display:flex;}
+  .db-hero-grid{grid-template-columns:1fr !important;}
+  .db-hero-cine{min-height:auto !important;}
+  .db-hero-bg{position:relative !important;height:auto !important;}
+  .db-hero-img{position:relative !important;height:auto !important;aspect-ratio:4/3;transform:none !important;animation:none !important;object-position:center !important;}
+  .db-hero-content{padding-top:30px !important;}
+  .db-team-grid{grid-template-columns:1fr 1fr !important;}
+}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" data-screen-label="Home — Dossier" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+
+  <!-- ============ MOBILE TOPBAR ============ -->
+  <div class="db-topbar" style="position:fixed;top:0;left:0;right:0;z-index:60;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(7,6,5,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);">
+    <div style="display:flex;align-items:center;gap:10px;"><img src="assets/logo.png" alt="" style="width:34px;height:34px;object-fit:contain;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;">Power Breakers</span></div>
+    <button onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;gap:5px;background:transparent;border:0;cursor:pointer;padding:6px;"><span style="width:24px;height:2px;background:#F4F1EA;"></span><span style="width:24px;height:2px;background:#F4F1EA;"></span><span style="width:24px;height:2px;background:#FAB601;"></span></button>
+  </div>
+
+  <!-- ============ FIXED SIDEBAR ============ -->
+  <aside ref="{{ sidebarRef }}" class="db-sidebar" style="top:0;left:0;bottom:0;width:248px;z-index:65;display:flex;flex-direction:column;justify-content:space-between;padding:30px 26px;background:linear-gradient(180deg,#0c0b09,#070605);border-right:1px solid rgba(250,182,1,.18);">
+    <div>
+      <a href="#home" style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <img src="assets/logo.png" alt="Power Breakers" style="width:46px;height:46px;object-fit:contain;filter:drop-shadow(0 0 9px rgba(250,182,1,.4));">
+        <div style="line-height:1;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;color:#F4F1EA;">Power<br>Breakers</div></div>
+      </a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;color:#FAB601;border:1px solid rgba(250,182,1,.3);border-radius:3px;padding:5px 9px;display:inline-block;margin:18px 0 30px;">FTC // 22045</div>
+      <nav style="display:flex;flex-direction:column;gap:3px;">
+        <a href="#home" data-nav="home" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#FAB601;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">01</span>Home</a>
+        <a href="#about" data-nav="about" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;" style-hover="color:#F4F1EA;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">02</span>About</a>
+        <a href="#robot" data-nav="robot" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;" style-hover="color:#F4F1EA;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">03</span>The Robot</a>
+        <a href="#awards" data-nav="awards" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;" style-hover="color:#F4F1EA;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">04</span>Awards</a>
+        <a href="#outreach" data-nav="outreach" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;" style-hover="color:#F4F1EA;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">05</span>Outreach</a>
+        <a href="#sponsors" data-nav="sponsors" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;" style-hover="color:#F4F1EA;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">06</span>Sponsors</a>
+        <a href="#team" data-nav="team" style="display:flex;align-items:center;gap:12px;padding:9px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;" style-hover="color:#F4F1EA;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">07</span>Team</a>
+      </nav>
+    </div>
+    <div>
+      <a href="#contact" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#FAB601;color:#0a0908;padding:13px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:18px;" style-hover="background:#ffc62b;">Sponsor Us →</a>
+      <div style="display:flex;gap:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8E887E;">
+        <a href="https://www.instagram.com/powerbreakers22045" target="_blank" style-hover="color:#FAB601;">IG ↗</a>
+        <a href="mailto:powerbreakers22045@gmail.com" style-hover="color:#FAB601;">MAIL ↗</a>
+      </div>
+    </div>
+  </aside>
+  <!-- mobile overlay backdrop -->
+  
+
+  <!-- ============ MAIN ============ -->
+  <main class="db-main">
+
+    <!-- HERO (cinematic) -->
+    <header id="home" class="db-hero-cine" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:0;">
+      <div class="db-hero-bg" style="position:absolute;inset:0;overflow:hidden;">
+        <img ref="{{ heroBgRef }}" class="db-hero-img" src="assets/team-hero.png" alt="The nine members of Power Breakers with their competition robot and two awards" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%;transform:scale(1.04);animation:heroPan linear both;animation-timeline:scroll(root);animation-range:0 100vh;will-change:transform;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,9,8,.6) 0%,rgba(10,9,8,.3) 30%,rgba(10,9,8,.7) 68%,#0a0908 100%);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 16% 80%,rgba(250,182,1,.16),transparent 56%);"></div>
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:54px 54px;mix-blend-mode:overlay;pointer-events:none;"></div>
+      </div>
+      <div class="db-hero-content" style="position:relative;z-index:2;padding:0 clamp(26px,4vw,64px) clamp(40px,7vh,86px);max-width:1180px;">
+        <div style="display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.2vw,12.5px);letter-spacing:.26em;text-transform:uppercase;color:#FAB601;margin-bottom:22px;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) both .1s;"><span style="width:10px;height:10px;border:2px solid #FAB601;border-radius:50%;animation:blink 1.6s steps(1) infinite;"></span>FIRST® Tech Challenge // Team 22045 // Sugar Land, TX</div>
+        <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(58px,11vw,168px);line-height:.84;letter-spacing:-.015em;margin:0;color:#F7F4ED;text-shadow:0 12px 56px rgba(0,0,0,.5);animation:heroIn .95s cubic-bezier(.2,.7,.2,1) both .2s;">Power<br><span style="color:#FAB601;">Breakers</span></h1>
+        <p style="font-size:clamp(16px,1.7vw,22px);line-height:1.45;color:#E7E2D8;max-width:560px;margin:24px 0 0;animation:heroIn .95s cubic-bezier(.2,.7,.2,1) both .32s;">Sparking innovation, together. A community-driven FTC team of student engineers — building robots and a brighter STEM future out of Sugar Land, Texas.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;animation:heroIn .95s cubic-bezier(.2,.7,.2,1) both .44s;">
+          <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;background:#FAB601;color:#0a0908;padding:16px 30px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 14px 40px rgba(250,182,1,.26);" style-hover="background:#ffc62b;transform:translateY(-2px);">Become a Sponsor →</a>
+          <a href="#team" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#F4F1EA;padding:16px 30px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);" style-hover="border-color:#FAB601;color:#FAB601;">Meet the Team</a>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:22px;left:clamp(26px,4vw,64px);z-index:2;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#A39D92;animation:floatHint 2.2s ease-in-out infinite;">SCROLL ↓</div>
+    </header>
+
+    <!-- SPEC STAT STRIP -->
+    <section style="border-top:1px solid rgba(250,182,1,.2);border-bottom:1px solid rgba(255,255,255,.07);background:rgba(6,5,4,.6);">
+      <div style="display:flex;align-items:center;gap:12px;padding:12px clamp(26px,4vw,64px);border-bottom:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8E887E;"><span style="width:8px;height:8px;background:#FAB601;border-radius:50%;animation:blink 1.6s steps(1) infinite;"></span>SEASON METRICS // 2025–26</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);">
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="4000" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">PERSON-HOURS</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="100" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">3D-PRINTED PARTS</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="30" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">DESIGN ITERATIONS</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="115" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">AVG. MATCH PTS</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-prefix="$" data-count-to="10" data-count-suffix="K">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">RAISED</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);max-width:1180px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:46px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">02 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Who We Are</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);transform-origin:left;animation:rvWidth .9s cubic-bezier(.5,0,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%;"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,4vw,68px);align-items:start;">
+        <div>
+          <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(34px,4.6vw,62px);line-height:.92;margin:0;color:#F4F1EA;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 28%;">Driven by students.<br><span style="color:#FAB601;">Powered by community.</span></h2>
+          <p style="font-size:clamp(15px,1.5vw,17.5px);line-height:1.7;color:#C3BDB2;margin:26px 0 0;max-width:560px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 32%;">Established in 2022 as a rookie team, Power Breakers has grown from 5 to 9 passionate middle- and high-schoolers. In the <strong style="color:#F4F1EA;">FIRST® Tech Challenge</strong>, students design, build, and program competition robots while building real-world STEM, business, and teamwork skills. Our core strengths — creativity, technical prowess, and unwavering team spirit.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:3px;overflow:hidden;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;">
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">STATUS</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#FAB601;">Rookie → Contender</div></div>
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">BASE</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#F4F1EA;">Sugar Land, TX</div></div>
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">RANKINGS</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#F4F1EA;">3rd → 3rd → 4th</div></div>
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">MEMBERS</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#F4F1EA;">9 Engineers</div></div>
+        </div>
+      </div>
+      <!-- WHAT WE DO bento -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-top:54px;">
+        <div style="background:#0c0b09;padding:26px 24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ CAD ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Design</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Fusion 360 &amp; Onshape full-robot modeling.</p></div>
+        <div style="background:#0c0b09;padding:26px 24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 3% cover 33%;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ MECH ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Build</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">goBILDA &amp; REV with 100+ printed parts.</p></div>
+        <div style="background:#0c0b09;padding:26px 24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 36%;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ DEV ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Code</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Java, computer vision &amp; autonomous.</p></div>
+        <div style="background:#0c0b09;padding:26px 24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 9% cover 39%;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ OUT ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Outreach</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">4,000+ hours mentoring &amp; STEM events.</p></div>
+      </div>
+    </section>
+
+    <!-- ROBOT / CHASSIS -->
+    <section id="robot" style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);background:rgba(6,5,4,.5);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);">
+      <div style="max-width:1180px;">
+        <div style="display:flex;align-items:center;gap:18px;margin-bottom:18px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">03 //</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">The Robot — Chassis Concepts</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+          <a href="#contact" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#FAB601;white-space:nowrap;" style-hover="color:#ffc62b;">OPEN-SOURCE ↗</a>
+        </div>
+        <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.65;color:#9A958C;max-width:620px;margin:0 0 40px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;">Every drivetrain we prototype is open-sourced on OnShape. Below: the chassis architectures we've engineered and tested this season.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;overflow:hidden;background:#0c0b09;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%;" style-hover="border-color:rgba(250,182,1,.4);">
+            <div style="aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#100f0d,#100f0d 10px,#0b0a08 10px,#0b0a08 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.08);position:relative;"><div style="position:absolute;top:8px;left:10px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;letter-spacing:.1em;">DWG-01</div><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5d584f;letter-spacing:.14em;text-align:center;">[ RENDER ]</div></div>
+            <div style="padding:18px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0 0 12px;color:#F4F1EA;">Swerve</h3><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.9;color:#9A958C;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;">PODS · 4×<br>RPM · 312<br>STEER · FULL</div></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;overflow:hidden;background:#0c0b09;animation:rvUp linear both;animation-timeline:view();animation-range:entry 3% cover 33%;" style-hover="border-color:rgba(250,182,1,.4);">
+            <div style="aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#100f0d,#100f0d 10px,#0b0a08 10px,#0b0a08 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.08);position:relative;"><div style="position:absolute;top:8px;left:10px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;letter-spacing:.1em;">DWG-02</div><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5d584f;letter-spacing:.14em;text-align:center;">[ RENDER ]</div></div>
+            <div style="padding:18px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0 0 12px;color:#F4F1EA;">Mecanum</h3><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.9;color:#9A958C;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;">ROLLERS · 96mm<br>DRIVE · OMNI<br>STRAFE · YES</div></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;overflow:hidden;background:#0c0b09;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 36%;" style-hover="border-color:rgba(250,182,1,.4);">
+            <div style="aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#100f0d,#100f0d 10px,#0b0a08 10px,#0b0a08 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.08);position:relative;"><div style="position:absolute;top:8px;left:10px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;letter-spacing:.1em;">DWG-03</div><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5d584f;letter-spacing:.14em;text-align:center;">[ RENDER ]</div></div>
+            <div style="padding:18px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0 0 12px;color:#F4F1EA;">6-Wheel</h3><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.9;color:#9A958C;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;">CENTER · DROP<br>RPM · 435<br>GRIP · HIGH</div></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;overflow:hidden;background:#0c0b09;animation:rvUp linear both;animation-timeline:view();animation-range:entry 9% cover 39%;" style-hover="border-color:rgba(250,182,1,.4);">
+            <div style="aspect-ratio:1/1;background:repeating-linear-gradient(135deg,#100f0d,#100f0d 10px,#0b0a08 10px,#0b0a08 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.08);position:relative;"><div style="position:absolute;top:8px;left:10px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;letter-spacing:.1em;">DWG-04</div><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5d584f;letter-spacing:.14em;text-align:center;">[ RENDER ]</div></div>
+            <div style="padding:18px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0 0 12px;color:#F4F1EA;">Diff. Swerve</h3><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.9;color:#9A958C;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;">PODS · 2×<br>TYPE · COAX<br>STATE · EXPMT</div></div>
+          </div>
+        </div>
+        <div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#5d584f;">// Placeholder renders — drop your drivetrain CAD exports here.</div>
+      </div>
+    </section>
+
+    <!-- AWARDS timeline -->
+    <section id="awards" style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);max-width:1180px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:46px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">04 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Awards &amp; Honors</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+      </div>
+      <div style="border-left:1px solid rgba(250,182,1,.3);margin-left:6px;">
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 26%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2024 · LEAGUE</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Design Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">1ST PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Industrial design &amp; engineering process at the League Tournament.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 28%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2025 · LEAGUE</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Innovate Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">1ST PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Creative, ingenious solutions to the season's engineering challenge.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2026 · LEAGUE</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Connect Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">1ST PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Connecting with the engineering community and local STEM ecosystem.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 32%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2026 · REGIONAL</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Inspire Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">QUALIFIER</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">FTC's top honor — best embodies the FIRST community.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 8% cover 34%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">STATE CHAMP.</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Inspire Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">3RD PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">A podium finish at the State Championship.</p></div>
+        <div style="position:relative;padding:0 0 4px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 10% cover 36%;"><div style="position:absolute;left:-7px;top:3px;width:13px;height:13px;background:#FAB601;border-radius:50%;box-shadow:0 0 0 4px rgba(250,182,1,.18);"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#FAB601;letter-spacing:.1em;width:120px;">★ WORLDS</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#FAB601;">Think Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#F4F1EA;">FIRST® CHAMPIONSHIP</span></div><p style="font-size:14px;color:#C3BDB2;margin:7px 0 0;">Earned at the FIRST® World Championship for engineering documentation.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTREACH -->
+    <section id="outreach" style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);background:rgba(6,5,4,.5);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);">
+      <div style="max-width:1180px;">
+        <div style="display:flex;align-items:center;gap:18px;margin-bottom:40px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">05 //</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Outreach &amp; Impact</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        </div>
+        <div style="display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,3.5vw,56px);align-items:center;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 28%;">
+            <img src="assets/outreach-1.png" alt="Outreach" style="width:100%;height:100%;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,.1);grid-row:span 2;aspect-ratio:3/4;">
+            <img src="assets/outreach-3.png" alt="STEM workshop" style="width:100%;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,.1);aspect-ratio:4/3;">
+            <img src="assets/outreach-2.png" alt="Mentoring" style="width:100%;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,.1);aspect-ratio:4/3;">
+          </div>
+          <div>
+            <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(30px,4vw,52px);line-height:.94;margin:0 0 22px;color:#F4F1EA;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;">We don't just build robots.</h2>
+            <div style="display:flex;flex-direction:column;animation:rvUp linear both;animation-timeline:view();animation-range:entry 7% cover 34%;">
+              <div style="display:flex;gap:18px;padding:15px 0;border-top:1px solid rgba(255,255,255,.08);"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;color:#FAB601;min-width:64px;">1000+</span><span style="font-size:14.5px;color:#C3BDB2;line-height:1.5;">Kids inspired at galas, festivals &amp; STEM nights.</span></div>
+              <div style="display:flex;gap:18px;padding:15px 0;border-top:1px solid rgba(255,255,255,.08);"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;color:#FAB601;min-width:64px;">30</span><span style="font-size:14.5px;color:#C3BDB2;line-height:1.5;">Kids mentored weekly at Cornerstone Elementary since September.</span></div>
+              <div style="display:flex;gap:18px;padding:15px 0;border-top:1px solid rgba(255,255,255,.08);"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;color:#FAB601;min-width:64px;">17</span><span style="font-size:14.5px;color:#C3BDB2;line-height:1.5;">FTC teams mentored, assisted &amp; collaborated with — incl. Worlds finalist Eureka #20871.</span></div>
+              <div style="display:flex;gap:18px;padding:15px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;color:#FAB601;min-width:64px;">300+</span><span style="font-size:14.5px;color:#C3BDB2;line-height:1.5;">Students at Honor Roll School — helped launch their own robotics team.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPONSORS -->
+    <section id="sponsors" style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);max-width:1180px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:36px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">06 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Sponsors &amp; Partners</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;white-space:nowrap;">14 PARTNERS · $10K RAISED</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:50px;">
+        <div style="background:#F4F1EA;border-radius:2px;height:80px;display:flex;align-items:center;justify-content:center;padding:16px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%;"><img src="assets/sp-google.png" alt="Google" style="max-height:30px;max-width:100%;object-fit:contain;"></div>
+        <div style="background:#F4F1EA;border-radius:2px;height:80px;display:flex;align-items:center;justify-content:center;padding:12px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 32%;"><img src="assets/sp-chipotle.png" alt="Chipotle" style="max-height:54px;max-width:100%;object-fit:contain;"></div>
+        <div style="background:#F4F1EA;border-radius:2px;height:80px;display:flex;align-items:center;justify-content:center;padding:12px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 34%;"><img src="assets/sp-genehaas.png" alt="Gene Haas Foundation" style="max-height:60px;max-width:100%;object-fit:contain;"></div>
+        <div style="background:#F4F1EA;border-radius:2px;height:80px;display:flex;align-items:center;justify-content:center;padding:18px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 36%;"><img src="assets/sp-frctees.png" alt="FRCtees" style="max-height:36px;max-width:100%;object-fit:contain;"></div>
+        <div style="background:#0c0b09;border:1px solid rgba(255,255,255,.1);border-radius:2px;height:80px;display:flex;align-items:center;justify-content:center;padding:18px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 8% cover 38%;"><img src="assets/sp-first.png" alt="FIRST" style="max-height:34px;max-width:100%;object-fit:contain;"></div>
+      </div>
+      <!-- tier table -->
+      <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;overflow:hidden;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 30%;">
+        <div style="display:grid;grid-template-columns:1.6fr repeat(6,1fr);background:#0c0b09;border-bottom:1px solid rgba(255,255,255,.1);">
+          <div style="padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">BENEFIT</div>
+          <div style="padding:14px 8px;text-align:center;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Spark</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$0–500</div></div>
+          <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Circuit</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$.5–1K</div></div>
+          <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Voltage</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$1–2.5K</div></div>
+          <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Surge</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$2.5–5K</div></div>
+          <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Lightning</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$5–10K</div></div>
+          <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.08);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#FAB601;">Storm</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$10K+</div></div>
+        </div>
+        <div data-tier-row="" style="display:grid;grid-template-columns:1.6fr repeat(6,1fr);border-bottom:1px solid rgba(255,255,255,.06);"><div style="padding:13px 18px;font-size:13px;color:#C3BDB2;">Logo on team website</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.06);">✓</div></div>
+        <div data-tier-row="" style="display:grid;grid-template-columns:1.6fr repeat(6,1fr);border-bottom:1px solid rgba(255,255,255,.06);"><div style="padding:13px 18px;font-size:13px;color:#C3BDB2;">Booth logo &amp; social shoutout</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;">–</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.06);">✓</div></div>
+        <div data-tier-row="" style="display:grid;grid-template-columns:1.6fr repeat(6,1fr);border-bottom:1px solid rgba(255,255,255,.06);"><div style="padding:13px 18px;font-size:13px;color:#C3BDB2;">Logo on team apparel</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.06);">✓</div></div>
+        <div data-tier-row="" style="display:grid;grid-template-columns:1.6fr repeat(6,1fr);border-bottom:1px solid rgba(255,255,255,.06);"><div style="padding:13px 18px;font-size:13px;color:#C3BDB2;">Logo on competition robot</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(255,255,255,.05);">✓</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.06);">✓</div></div>
+        <div data-tier-row="" style="display:grid;grid-template-columns:1.6fr repeat(6,1fr);"><div style="padding:13px 18px;font-size:13px;color:#C3BDB2;">"Powered by you" + largest logo</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#4a463f;border-left:1px solid rgba(255,255,255,.05);">–</div><div style="display:flex;align-items:center;justify-content:center;color:#FAB601;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.06);">✓</div></div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);background:rgba(6,5,4,.5);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);">
+      <div style="max-width:1180px;">
+        <div style="display:flex;align-items:center;gap:18px;margin-bottom:18px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">07 //</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Meet the Team</span>
+          <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;white-space:nowrap;">9 ENGINEERS</span>
+        </div>
+        <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.65;color:#9A958C;max-width:620px;margin:0 0 40px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;">Nine students, one mission. Each member owns a discipline — from CAD to outreach — and together they carry the robot from first sketch to the competition floor.</p>
+        <div class="db-team-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">01</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">STRATEGY</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">TANISH GADE</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Leads season strategy, scouting &amp; match-day operations.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 3% cover 33%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">02</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">BUSINESS</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Co-Captain &amp; Business</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Drives sponsorship, budget &amp; team logistics.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 36%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">03</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">DESIGN</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">CAD &amp; Design Lead</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Owns full-robot modeling in Fusion 360 &amp; Onshape.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">04</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">MECHANICAL</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Mechanical Lead</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Heads fabrication, assembly &amp; drivetrain builds.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 3% cover 33%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">05</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">SOFTWARE</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Software Lead</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Architects Java control, vision &amp; autonomous code.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 36%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">06</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">SOFTWARE</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Programmer</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Tunes autonomous paths &amp; TeleOp reliability.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 30%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">07</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">OUTREACH</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Outreach Lead</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Runs STEM workshops &amp; community mentoring.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 3% cover 33%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">08</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">DOCS</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Documentation Lead</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">Maintains the engineering portfolio &amp; notebook.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:3px;background:#0c0b09;padding:24px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 36%;" style-hover="border-color:rgba(250,182,1,.4);transform:translateY(-3px);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(250,182,1,.4);background:radial-gradient(circle at 50% 35%,#1a1710,#0a0908);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;color:#FAB601;">09</div><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 10px;">MECHANICAL</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;">Build &amp; Fabrication</h3>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#FAB601;margin-bottom:12px;">+ add name</div>
+            <p style="font-size:13.5px;line-height:1.55;color:#9A958C;margin:0;">3D-prints &amp; machines custom robot parts.</p>
+          </div>
+        </div>
+        <div style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#5d584f;">// Add each member's name &amp; headshot — tap a card to edit, or drop a photo into the avatar.</div>
+      </div>
+    </section><section id="contact" style="position:relative;padding:clamp(70px,11vh,130px) clamp(26px,4vw,64px);border-top:1px solid rgba(250,182,1,.2);overflow:hidden;">
+      <img src="assets/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:320px;opacity:.05;pointer-events:none;">
+      <div style="position:relative;max-width:1180px;">
+        <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(40px,6.5vw,96px);line-height:.86;margin:0;color:#F4F1EA;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 28%;">Let's build the<br><span style="color:#FAB601;">future together.</span></h2>
+        <p style="font-size:clamp(15px,1.6vw,19px);line-height:1.6;color:#C3BDB2;max-width:520px;margin:24px 0 36px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 5% cover 32%;">Sponsor a rising FTC team, mentor our students, or just say hello. Every spark counts — and support is often tax-deductible.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;animation:rvUp linear both;animation-timeline:view();animation-range:entry 8% cover 36%;">
+          <a href="mailto:powerbreakers22045@gmail.com" style="background:#FAB601;color:#0a0908;padding:17px 32px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:.05em;text-transform:uppercase;" style-hover="background:#ffc62b;">Sponsor the Power Breakers →</a>
+          <a href="https://www.instagram.com/powerbreakers22045" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;color:#C3BDB2;" style-hover="color:#FAB601;">@powerbreakers_22045 ↗</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:30px;margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;font-size:12px;color:#8E887E;line-height:1.8;">
+          
+          <div><span style="color: rgb(250, 182, 1);">MAIL //</span> powerbreakersftc@gmail.com</div><div><span style="color:#FAB601;">TEAM //</span> Vasu Kolla · 281-236-5143</div>
+          <div><span style="color:#FAB601;">TEAM //</span> Sujan Gade · 404-790-3609</div>
+          <div><span style="color:#FAB601;">BASE //</span> Sugar Land, Texas</div>
+        </div>
+        <div style="margin-top:40px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6E685E;">© 2026 POWER BREAKERS · FIRST® TECH CHALLENGE TEAM #22045 · SPARKING INNOVATION, TOGETHER ⚡</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    
+  <div ref="{{ scrimRef }}" onClick="{{ toggleMenu }}" style="position: fixed; inset: 0; z-index: 64; background: rgba(0,0,0,.6); opacity: 0; pointer-events: none; transition: opacity .3s; left: -150px; top: 5298px"></div></main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.rootRef = React.createRef();
+    this.sidebarRef = React.createRef();
+    this.scrimRef = React.createRef();
+    this.heroBgRef = React.createRef();
+    this.menuOpen = false;
+  }
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    // Counters
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { this.animateCount(e.target); cio.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    root.querySelectorAll('[data-count-to]').forEach((el) => cio.observe(el));
+    // Scroll-spy: highlight active sidebar link
+    const links = root.querySelectorAll('[data-nav]');
+    const setActive = (id) => {
+      links.forEach((a) => {
+        const on = a.getAttribute('data-nav') === id;
+        a.style.color = on ? '#FAB601' : '#9A958C';
+        const num = a.querySelector('span');
+        if (num) num.style.color = on ? '#FAB601' : '#6E685E';
+      });
+    };
+    const sects = ['home', 'about', 'robot', 'awards', 'outreach', 'sponsors', 'team', 'contact'];
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) setActive(e.target.id === 'contact' ? 'sponsors' : e.target.id);
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sects.forEach((id) => { const el = root.querySelector('#' + id); if (el) spy.observe(el); });
+    // Parallax on the hero photo (fallback when scroll-timeline unsupported)
+    if (!CSS || !CSS.supports || !CSS.supports('animation-timeline: scroll()')) {
+      this.onScroll = () => {
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        if (window.innerWidth > 880 && this.heroBgRef.current) this.heroBgRef.current.style.transform = 'scale(1.04) translateY(' + (y * 0.06) + 'px)';
+      };
+      window.addEventListener('scroll', this.onScroll, { passive: true });
+    }
+  }
+  componentWillUnmount() { if (this.onScroll) window.removeEventListener('scroll', this.onScroll); }
+  animateCount(el) {
+    const to = parseFloat(el.getAttribute('data-count-to'));
+    const suffix = el.getAttribute('data-count-suffix') || '';
+    const prefix = el.getAttribute('data-count-prefix') || '';
+    const dur = 1600, start = performance.now();
+    const isFloat = to % 1 !== 0;
+    const step = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      const v = to * e;
+      el.textContent = prefix + (isFloat ? v.toFixed(1) : Math.round(v).toLocaleString()) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  toggleMenu() {
+    const sb = this.sidebarRef.current, sc = this.scrimRef.current;
+    if (!sb) return;
+    this.menuOpen = !this.menuOpen;
+    sb.style.transform = this.menuOpen ? 'translateX(0)' : 'translateX(-100%)';
+    if (sc) { sc.style.opacity = this.menuOpen ? '1' : '0'; sc.style.pointerEvents = this.menuOpen ? 'auto' : 'none'; }
+  }
+  renderVals() {
+    return {
+      rootRef: this.rootRef,
+      sidebarRef: this.sidebarRef,
+      scrimRef: this.scrimRef,
+      heroBgRef: this.heroBgRef,
+      toggleMenu: () => this.toggleMenu(),
+    };
+  }
+}
+</script>
+</body>
+</html>

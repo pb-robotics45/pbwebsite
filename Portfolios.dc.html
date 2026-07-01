@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+.site-main{margin-left:248px;padding-top:38px;}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.pf-info{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media (max-width:980px){.pf-grid{grid-template-columns:1fr;max-width:400px;}.pf-info{grid-template-columns:1fr 1fr;}}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}}
+</style>
+</helmet>
+<div data-screen-label="Portfolios" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="portfolios" hint-size="100%,0"></dc-import>
+  <main class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">08 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Engineering Portfolios</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">The Season,<br><span style="color:#FAB601;">Documented</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:760px;margin:24px 0 0;">In FTC, the <strong style="color:#F4F1EA;">engineering portfolio</strong> is a team's story on paper — how we identify the problem, ideate, design, build, test, and iterate, alongside our outreach and team management. Judges read it to award honors like Design, Innovate, Think, and the top Inspire Award. Below are our portfolios across three seasons — click any cover to read the full document.</p>
+    </section>
+
+    <!-- WHAT'S INSIDE -->
+    <section style="padding:clamp(34px,5vh,52px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div class="pf-info">
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:20px;"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#FAB601;margin-bottom:10px;">[ PROCESS ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0 0 6px;color:#F4F1EA;">Design Journey</h3><p style="font-size:12.5px;line-height:1.55;color:#9A958C;margin:0;">Identify → ideate → design → build → test → iterate.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:20px;"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#FAB601;margin-bottom:10px;">[ ROBOT ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0 0 6px;color:#F4F1EA;">Subsystems</h3><p style="font-size:12.5px;line-height:1.55;color:#9A958C;margin:0;">Drivetrain, intake, shooter &amp; code, with data.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:20px;"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#FAB601;margin-bottom:10px;">[ IMPACT ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0 0 6px;color:#F4F1EA;">Outreach</h3><p style="font-size:12.5px;line-height:1.55;color:#9A958C;margin:0;">Community events, mentoring &amp; connections.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:20px;"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#FAB601;margin-bottom:10px;">[ TEAM ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0 0 6px;color:#F4F1EA;">Sustainability</h3><p style="font-size:12.5px;line-height:1.55;color:#9A958C;margin:0;">Budget, business plan &amp; team growth.</p></div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO COVERS -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// READ OUR PORTFOLIOS</div>
+      <div class="pf-grid">
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;background:#000;">
+            <img src="assets/cover-centerstage.png" alt="Centerstage portfolio cover" style="width:100%;aspect-ratio:17/22;display:block;object-fit:contain;">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#0a0908;background:#FAB601;padding:5px 8px;border-radius:3px;">2023–24</div>
+          </div>
+          <div style="padding:20px;">
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;line-height:1;">Centerstage</h3>
+            <p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0 0 16px;">Our rookie-era portfolio from the Centerstage season.</p>
+            <a href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#F4F1EA;padding:12px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;" style-hover="border-color:#FAB601;color:#FAB601;">View Full Portfolio →</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;background:#000;">
+            <img src="assets/cover-intothedeep.png" alt="Into the Deep portfolio cover" style="width:100%;aspect-ratio:17/22;display:block;object-fit:contain;">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#0a0908;background:#FAB601;padding:5px 8px;border-radius:3px;">2024–25</div>
+          </div>
+          <div style="padding:20px;">
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;text-transform:uppercase;margin:0 0 4px;color:#F4F1EA;line-height:1;">Into the Deep</h3>
+            <p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0 0 16px;">The Into the Deep season — refined process &amp; outreach.</p>
+            <a href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#F4F1EA;padding:12px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;" style-hover="border-color:#FAB601;color:#FAB601;">View Full Portfolio →</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(250,182,1,.35);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;background:#000;">
+            <img src="assets/cover-decode.png" alt="Decode portfolio cover" style="width:100%;aspect-ratio:17/22;display:block;object-fit:contain;">
+            <div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:#0a0908;background:#FAB601;padding:5px 8px;border-radius:3px;">2025–26 · LATEST</div>
+          </div>
+          <div style="padding:20px;">
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:24px;text-transform:uppercase;margin:0 0 4px;color:#FAB601;line-height:1;">Decode</h3>
+            <p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0 0 16px;">Our current season — Apollo Mk.1–4 &amp; 1,200+ impacted.</p>
+            <a href="uploads/Powerbreakers 22045 25-26 Engineering Portfolio (finaL DRAFT)-1-compressed.pdf" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#FAB601;color:#0a0908;padding:12px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;" style-hover="background:#ffc62b;">Read Decode Portfolio →</a>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#5d584f;line-height:1.7;">// Drag each portfolio's cover image onto its slot. Set the "View Full Portfolio" links to your published PDFs (the Decode link already points to your uploaded portfolio).</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>

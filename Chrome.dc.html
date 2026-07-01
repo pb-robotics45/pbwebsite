@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+@keyframes pbBlink{0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+@keyframes pbTicker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.pb-ticker-track:hover{animation-play-state:paused;}
+.pb-sidebar{position:fixed;}
+.pb-topbar{display:none;}
+@media (max-width:880px){
+  .pb-sidebar{transform:translateX(-100%);transition:transform .4s cubic-bezier(.5,0,.2,1);z-index:75;}
+  .pb-topbar{display:flex;}
+}
+</style>
+</helmet>
+<div style="position:relative;height:0;font-family:'Barlow',sans-serif;">
+
+  <!-- UPCOMING EVENTS TICKER -->
+  <a href="Outreach.dc.html#events" style="position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:stretch;height:38px;background:#FAB601;color:#0a0908;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.25);">
+    <div style="display:flex;align-items:center;gap:8px;padding:0 16px;background:#0a0908;color:#FAB601;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;z-index:2;">
+      <span style="width:8px;height:8px;background:#FAB601;border-radius:50%;animation:pbBlink 1.6s steps(1) infinite;"></span>Upcoming
+    </div>
+    <div style="position:relative;flex:1;overflow:hidden;display:flex;align-items:center;">
+      <div ref="{{ tickerRef }}" class="pb-ticker-track" style="display:flex;white-space:nowrap;will-change:transform;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.03em;text-transform:uppercase;">
+        <span style="padding-left:24px;">Loading upcoming events…</span>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;padding:0 16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;background:#FAB601;z-index:2;">View Calendar →</div>
+  </a>
+
+  <!-- MOBILE TOPBAR -->
+  <div class="pb-topbar" style="position:fixed;top:38px;left:0;right:0;z-index:70;align-items:center;justify-content:space-between;padding:11px 18px;background:rgba(7,6,5,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;color:#F4F1EA;text-decoration:none;"><img src="assets/logo.png" alt="" style="width:32px;height:32px;object-fit:contain;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;">Power Breakers</span></a>
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;gap:5px;background:transparent;border:0;cursor:pointer;padding:6px;"><span style="width:24px;height:2px;background:#F4F1EA;"></span><span style="width:24px;height:2px;background:#F4F1EA;"></span><span style="width:24px;height:2px;background:#FAB601;"></span></button>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside ref="{{ sidebarRef }}" class="pb-sidebar" style="top:38px;left:0;bottom:0;width:248px;z-index:72;display:flex;flex-direction:column;justify-content:space-between;padding:26px 24px;background:linear-gradient(180deg,#0c0b09,#070605);border-right:1px solid rgba(250,182,1,.18);overflow-y:auto;">
+    <div>
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:12px;margin-bottom:8px;color:#F4F1EA;text-decoration:none;">
+        <img src="assets/logo.png" alt="Power Breakers" style="width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 0 9px rgba(250,182,1,.4));">
+        <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:19px;line-height:1;text-transform:uppercase;">Power<br>Breakers</div>
+      </a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;color:#FAB601;border:1px solid rgba(250,182,1,.3);border-radius:3px;padding:5px 9px;display:inline-block;margin:16px 0 24px;">FTC // 22045</div>
+      <nav style="display:flex;flex-direction:column;gap:1px;">
+        <a href="Home.dc.html" data-nav="home" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">01</span>Home</a>
+        <a href="Team.dc.html" data-nav="team" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">02</span>Team</a>
+        <a href="Robot.dc.html" data-nav="robot" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">03</span>Robot</a>
+        <a href="Chassis.dc.html" data-nav="chassis" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">04</span>Chassis</a>
+        <a href="Outreach.dc.html" data-nav="outreach" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">05</span>Outreach</a>
+        <a href="Mentorship.dc.html" data-nav="mentorship" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">06</span>Mentorship</a>
+        <a href="Sponsors.dc.html" data-nav="sponsors" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">07</span>Sponsors</a>
+        <a href="Portfolios.dc.html" data-nav="portfolios" style="display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#9A958C;text-decoration:none;" style-hover="color:#F4F1EA;"><span data-num="" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6E685E;width:18px;">08</span>Portfolios</a>
+      </nav>
+    </div>
+    <div>
+      <a href="Sponsors.dc.html" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#FAB601;color:#0a0908;padding:12px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;text-decoration:none;" style-hover="background:#ffc62b;">Sponsor Us →</a>
+      <div style="display:flex;gap:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8E887E;">
+        <a href="https://www.instagram.com/powerbreakers_22045" target="_blank" style="color:#8E887E;text-decoration:none;" style-hover="color:#FAB601;">IG ↗</a>
+        <a href="mailto:powerbreakers22045@gmail.com" style="color:#8E887E;text-decoration:none;" style-hover="color:#FAB601;">MAIL ↗</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MOBILE SCRIM -->
+  <div ref="{{ scrimRef }}" onClick="{{ toggleMenu }}" style="position:fixed;inset:0;z-index:71;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .3s;"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:600},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;team&quot;,&quot;robot&quot;,&quot;chassis&quot;,&quot;outreach&quot;,&quot;mentorship&quot;,&quot;sponsors&quot;,&quot;portfolios&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.sidebarRef = React.createRef();
+    this.scrimRef = React.createRef();
+    this.tickerRef = React.createRef();
+    this.menuOpen = false;
+    // EDIT: your real events here — {name, date:'YYYY-MM-DD', location}
+    this.events = [
+      { name: 'Summer Build Season Kickoff', date: '2026-06-28', location: 'Team Workshop' },
+      { name: 'OnShape CAD Workshop', date: '2026-07-06', location: 'Cornerstone Elem.' },
+      { name: 'Discovery Green STEM Day', date: '2026-07-18', location: 'Houston, TX' },
+      { name: 'Fall Fest Outreach Booth', date: '2026-10-10', location: 'Sugar Land' },
+      { name: 'DECODE League Meet #1', date: '2026-11-14', location: 'Houston, TX' },
+    ];
+  }
+  componentDidMount(){
+    // active nav highlight
+    const active = this.props.active || 'home';
+    const root = this.sidebarRef.current;
+    if (root){
+      root.querySelectorAll('[data-nav]').forEach((a)=>{
+        const on = a.getAttribute('data-nav') === active;
+        a.style.color = on ? '#FAB601' : '#9A958C';
+        const num = a.querySelector('[data-num]');
+        if (num) num.style.color = on ? '#FAB601' : '#6E685E';
+      });
+    }
+    // build ticker
+    this.buildTicker();
+  }
+  buildTicker(){
+    const el = this.tickerRef.current;
+    if (!el) return;
+    const today = new Date('2026-06-25T00:00:00');
+    const fmt = (d)=> d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    const withDays = this.events.map(e=>{
+      const d = new Date(e.date+'T00:00:00');
+      const days = Math.round((d - today)/86400000);
+      return Object.assign({}, e, { d, days });
+    }).filter(e=> e.days >= 0).sort((a,b)=> a.days - b.days);
+    const soon = withDays.filter(e=> e.days <= 14);
+    const list = (soon.length ? soon : withDays.slice(0,3));
+    const seg = (e)=>{
+      const tag = e.days <= 14 ? (e.days === 0 ? 'TODAY' : (e.days === 1 ? 'TOMORROW' : 'IN ' + e.days + ' DAYS')) : fmt(e.d);
+      return '<span style="display:inline-flex;align-items:center;gap:9px;padding:0 26px;">'
+        + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:10px;letter-spacing:.12em;background:#0a0908;color:#FAB601;padding:3px 7px;border-radius:3px;">'+tag+'</span>'
+        + e.name + ' &nbsp;·&nbsp; ' + e.location
+        + '<span style="opacity:.4;">/ /</span></span>';
+    };
+    const one = list.map(seg).join('');
+    el.innerHTML = '<div style="display:flex;">' + one + '</div><div style="display:flex;" aria-hidden="true">' + one + '</div>';
+    // animate
+    const total = el.scrollWidth / 2;
+    const dur = Math.max(18, total / 70);
+    el.style.animation = 'pbTicker ' + dur + 's linear infinite';
+  }
+  toggleMenu(){
+    const sb = this.sidebarRef.current, sc = this.scrimRef.current;
+    if(!sb) return;
+    this.menuOpen = !this.menuOpen;
+    sb.style.transform = this.menuOpen ? 'translateX(0)' : '';
+    if(sc){ sc.style.opacity = this.menuOpen ? '1':'0'; sc.style.pointerEvents = this.menuOpen ? 'auto':'none'; }
+  }
+  renderVals(){
+    return {
+      sidebarRef: this.sidebarRef,
+      scrimRef: this.scrimRef,
+      tickerRef: this.tickerRef,
+      toggleMenu: ()=> this.toggleMenu(),
+    };
+  }
+}
+</script>
+</body>
+</html>

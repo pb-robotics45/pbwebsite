@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+.site-main{margin-left:248px;padding-top:38px;}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.cs-mv{width:100%;height:300px;object-fit:contain;display:block;background:#15130f;}
+.cs-mv-big{width:100%;height:440px;object-fit:contain;display:block;background:#15130f;}
+.cs-feat{display:grid;grid-template-columns:1.3fr 1fr;gap:0;}
+@media (max-width:980px){.cs-grid{grid-template-columns:1fr;}.cs-feat{grid-template-columns:1fr;}.cs-mv-big{height:340px;}}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}}
+</style>
+</helmet>
+<div data-screen-label="Chassis" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="chassis" hint-size="100%,0"></dc-import>
+  <main class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">04 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Chassis Concepts</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;white-space:nowrap;">9 DRIVETRAINS · OPEN-SOURCE</span>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">Drivetrain<br><span style="color:#FAB601;">R&amp;D</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:700px;margin:24px 0 0;">From switchable butterfly drives to a ball drive and an experimental swerve-mecanum hybrid — every chassis we prototype is open-sourced on Onshape. Explore each concept below.</p>
+    </section>
+
+    <!-- FEATURED -->
+    <section style="padding:clamp(40px,6vh,64px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#FAB601;margin-bottom:18px;">// FLAGSHIP CONCEPT</div>
+      <div style="border:1px solid rgba(250,182,1,.4);border-radius:8px;overflow:hidden;background:linear-gradient(180deg,#100e0a,#0c0b09);box-shadow:0 24px 70px rgba(0,0,0,.4);">
+        <div class="cs-feat">
+          <div style="position:relative;border-right:1px solid rgba(255,255,255,.06);">
+            <img class="cs-mv-big" src="assets/cad-diffymecanum.png" alt="Differential swerve-mecanum CAD render">
+            <div style="position:absolute;top:14px;left:14px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#0a0908;background:#FAB601;padding:6px 10px;border-radius:3px;">MDL-09 · ★ FLAGSHIP</div>
+          </div>
+          <div style="padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;justify-content:center;">
+            <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:clamp(28px,3.4vw,44px);text-transform:uppercase;line-height:.92;margin:0 0 14px;color:#FAB601;">Differential Swerve-Mecanum</h2>
+            <p style="font-size:15px;line-height:1.65;color:#D8D2C7;margin:0 0 20px;">A hybrid between both families of holonomic drivetrains — combining differential swerve and mecanum into one system that uses only <strong style="color:#fff;">4 motors and 12 servos</strong> to actuate nearly <strong style="color:#fff;">400 degrees of freedom</strong>, including 16 individually controlled wheels.</p>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:4px;overflow:hidden;">
+              <div style="background:#0c0b09;padding:14px 10px;text-align:center;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;color:#FAB601;line-height:1;">4</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:#8E887E;margin-top:6px;">MOTORS</div></div>
+              <div style="background:#0c0b09;padding:14px 10px;text-align:center;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;color:#FAB601;line-height:1;">12</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:#8E887E;margin-top:6px;">SERVOS</div></div>
+              <div style="background:#0c0b09;padding:14px 10px;text-align:center;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;color:#FAB601;line-height:1;">~400</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:#8E887E;margin-top:6px;">DEG · FREEDOM</div></div>
+              <div style="background:#0c0b09;padding:14px 10px;text-align:center;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;color:#FAB601;line-height:1;">16</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:#8E887E;margin-top:6px;">WHEELS</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section style="padding:clamp(40px,6vh,64px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// CONCEPT LIBRARY</div>
+      <div class="cs-grid">
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-butterflyv1.png" alt="Butterfly v1 CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-01</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Butterfly v1</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">SWITCHABLE</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Switches from a mecanum-based holonomic drivetrain to a 4-wheel tank drive for defense — engaging the tank wheels via a giant partial gear.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-butterflyv2.png" alt="Butterfly v2 CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-02</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Butterfly v2</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">LINKAGE</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">In contrast to v1, this version engages the tank wheels via an over-centered linkage — giving more traction on the field.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-8wheel.png" alt="8-wheel mecanum CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-03</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">8-Wheel Mecanum</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">DEFENSIVE</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Eight specially-made mecanum wheels exploit mecanum kinematics to strafe and move holonomically — while keeping a significant defensive edge over normal mecanum.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-collinear.png" alt="Collinear CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-04</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Collinear</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">EXPERIMENTAL</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">An experimental mecanum drivetrain designed to channel more motor power into sideways strafing, improving overall mobility.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-coaxv1.png" alt="Coaxial swerve v1 CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-05</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Coaxial Swerve v1</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">COMPACT</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">22045's first attempt at coaxial swerve. v1 uses a traditional FTC parallel-plate structure to house the pods, keeping the whole drivetrain compact.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-coaxv2.png" alt="Coax v2 CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-06</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Coax v2</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">OFFSEASON</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">v2 mounts the plates vertically rather than horizontally, using bellypans and floor plates instead of parallel plates — optimized during the offseason.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-diffy.png" alt="Differential swerve CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-07</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Differential Swerve</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">2-WHEEL</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Uses a differential gearbox to drive on two wheels, whose speed and heading are set by the sum and difference of the RPMs of the two motors powering each wheel.</p></div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <div style="position:relative;"><img class="cs-mv" src="assets/cad-ball.png" alt="Ball drive CAD render"><div style="position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#FAB601;background:rgba(10,9,8,.7);padding:5px 8px;border-radius:3px;">MDL-08</div></div>
+          <div style="padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:9px;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Ball Drive</h3><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#FAB601;">HIGH-TRACTION</span></div><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Built on the same principles as differential drive, but actuates omniwheels to spin a ball in any direction — greatly increasing field traction while keeping differential-swerve's benefits.</p></div>
+        </div>
+
+      </div>
+      <div style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#5d584f;line-height:1.7;">// Open-source CAD renders — every drivetrain is public on our Onshape.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>

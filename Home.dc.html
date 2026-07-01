@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail" data-bg-color="#0a0908">
+  <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="140" fill="#0a0908"></rect>
+    <circle cx="100" cy="70" r="26" fill="none" stroke="#FAB601" stroke-width="4"></circle>
+    <path d="M104 50 L86 76 L98 76 L94 92 L114 64 L100 64 Z" fill="#FAB601"></path>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+::selection{background:#FAB601;color:#0a0908;}
+@keyframes rvUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+@keyframes rvWidth{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+@keyframes heroIn{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+@keyframes pbBlink{0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+@keyframes floatHint{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+@keyframes heroPan{from{transform:scale(1.05);}to{transform:scale(1.05) translateY(54px);}}
+.site-main{margin-left:248px;padding-top:38px;}
+@media (max-width:880px){
+  .site-main{margin-left:0;padding-top:92px;}
+  .hm-hero-content{padding-bottom:48px !important;}
+  .hm-grid2{grid-template-columns:1fr !important;}
+  .hm-bento4{grid-template-columns:1fr 1fr !important;}
+  .hm-explore{grid-template-columns:1fr !important;}
+  .hm-stats{grid-template-columns:1fr 1fr !important;}
+}
+</style>
+</helmet>
+<div data-screen-label="Home" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="home" hint-size="100%,0"></dc-import>
+  <main ref="{{ rootRef }}" class="site-main">
+
+    <!-- HERO -->
+    <header style="position:relative;min-height:calc(100vh - 38px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;">
+      <div style="position:absolute;inset:0;overflow:hidden;">
+        <img ref="{{ heroBgRef }}" src="assets/team-hero.png" alt="Power Breakers team with their competition robot and two awards" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:scale(1.05);animation:heroPan linear both;animation-timeline:scroll(root);animation-range:0 100vh;will-change:transform;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,9,8,.55) 0%,rgba(10,9,8,.25) 30%,rgba(10,9,8,.72) 70%,#0a0908 100%);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 16% 84%,rgba(250,182,1,.16),transparent 56%);"></div>
+      </div>
+      <div class="hm-hero-content" style="position:relative;z-index:2;padding:0 clamp(26px,4vw,64px) clamp(40px,7vh,80px);max-width:1180px;">
+        <div style="display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.2vw,12.5px);letter-spacing:.26em;text-transform:uppercase;color:#FAB601;margin-bottom:22px;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) both .1s;"><span style="width:10px;height:10px;border:2px solid #FAB601;border-radius:50%;animation:pbBlink 1.6s steps(1) infinite;"></span>FIRST® Tech Challenge // Team 22045 // Sugar Land, TX</div>
+        <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(58px,11vw,160px);line-height:.84;letter-spacing:-.015em;margin:0;color:#F7F4ED;text-shadow:0 12px 56px rgba(0,0,0,.5);animation:heroIn .95s cubic-bezier(.2,.7,.2,1) both .2s;">Power<br><span style="color:#FAB601;">Breakers</span></h1>
+        <p style="font-size:clamp(16px,1.7vw,22px);line-height:1.45;color:#E7E2D8;max-width:560px;margin:24px 0 0;animation:heroIn .95s cubic-bezier(.2,.7,.2,1) both .32s;">Sparking innovation, together. A community-driven FTC team of student engineers — building robots and a brighter STEM future out of Sugar Land, Texas.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;animation:heroIn .95s cubic-bezier(.2,.7,.2,1) both .44s;">
+          <a href="Sponsors.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#FAB601;color:#0a0908;padding:16px 30px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 40px rgba(250,182,1,.26);" style-hover="background:#ffc62b;transform:translateY(-2px);">Become a Sponsor →</a>
+          <a href="Team.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);color:#F4F1EA;padding:16px 30px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);" style-hover="border-color:#FAB601;color:#FAB601;">Meet the Team</a>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:20px;left:clamp(26px,4vw,64px);z-index:2;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#A39D92;animation:floatHint 2.2s ease-in-out infinite;">SCROLL ↓</div>
+    </header>
+
+    <!-- STAT STRIP -->
+    <section style="border-top:1px solid rgba(250,182,1,.2);border-bottom:1px solid rgba(255,255,255,.07);background:rgba(6,5,4,.6);">
+      <div style="display:flex;align-items:center;gap:12px;padding:12px clamp(26px,4vw,64px);border-bottom:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:#8E887E;"><span style="width:8px;height:8px;background:#FAB601;border-radius:50%;animation:pbBlink 1.6s steps(1) infinite;"></span>SEASON METRICS // 2025–26</div>
+      <div class="hm-stats" style="display:grid;grid-template-columns:repeat(5,1fr);">
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="4000" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">PERSON-HOURS</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="1200" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">PEOPLE IMPACTED</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="30" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">DESIGN ITERATIONS</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-to="17" data-count-suffix="">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">TEAMS MENTORED</div></div>
+        <div style="padding:26px clamp(16px,2vw,28px);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,46px);color:#F4F1EA;line-height:1;"><span data-count-prefix="$" data-count-to="20" data-count-suffix="K">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;margin-top:8px;">RAISED</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);max-width:1180px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:46px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">01 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Who We Are</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);transform-origin:left;animation:rvWidth .9s cubic-bezier(.5,0,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%;"></span>
+      </div>
+      <div class="hm-grid2" style="display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,4vw,68px);align-items:start;">
+        <div>
+          <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(34px,4.6vw,62px);line-height:.92;margin:0;color:#F4F1EA;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 28%;">Driven by students.<br><span style="color:#FAB601;">Powered by community.</span></h2>
+          <p style="font-size:clamp(15px,1.5vw,17.5px);line-height:1.7;color:#C3BDB2;margin:26px 0 0;max-width:560px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 32%;">Established in 2022 as a rookie team, Power Breakers has grown from 5 to 9 passionate middle- and high-schoolers. In the <strong style="color:#F4F1EA;">FIRST® Tech Challenge</strong>, students design, build, and program competition robots while building real-world STEM, business, and teamwork skills. Our core strengths — creativity, technical prowess, and unwavering team spirit.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:3px;overflow:hidden;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;">
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">STATUS</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#FAB601;">Rookie → Contender</div></div>
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">BASE</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#F4F1EA;">Sugar Land, TX</div></div>
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">FOUNDED</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#F4F1EA;">2022</div></div>
+          <div style="background:#0c0b09;padding:22px;"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#8E887E;margin-bottom:10px;">MEMBERS</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:#F4F1EA;">9 Engineers</div></div>
+        </div>
+      </div>
+      <div class="hm-bento4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-top:54px;">
+        <a href="Chassis.dc.html" style="background:#0c0b09;padding:26px 24px;text-decoration:none;display:block;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ CAD ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Design</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Fusion 360 &amp; Onshape full-robot modeling.</p></a>
+        <a href="Robot.dc.html" style="background:#0c0b09;padding:26px 24px;text-decoration:none;display:block;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ MECH ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Build</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">goBILDA, REV &amp; aluminum machining.</p></a>
+        <a href="Robot.dc.html" style="background:#0c0b09;padding:26px 24px;text-decoration:none;display:block;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ DEV ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Code</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Java, computer vision &amp; autonomous.</p></a>
+        <a href="Outreach.dc.html" style="background:#0c0b09;padding:26px 24px;text-decoration:none;display:block;" style-hover="background:#13110d;"><div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:#FAB601;margin-bottom:18px;">[ OUT ]</div><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;margin:0 0 9px;color:#F4F1EA;">Outreach</h3><p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">4,000+ hours mentoring &amp; STEM events.</p></a>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);max-width:1180px;background:rgba(6,5,4,.5);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:46px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">02 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Awards &amp; Honors</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+      </div>
+      <div style="border-left:1px solid rgba(250,182,1,.3);margin-left:6px;">
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 0% cover 26%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2024 · LEAGUE</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Design Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">1ST PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Industrial design &amp; engineering process at the League Tournament.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 2% cover 28%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2025 · LEAGUE</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Innovate Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">1ST PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Creative, ingenious solutions to the season's engineering challenge.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 4% cover 30%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2026 · LEAGUE</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Connect Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">1ST PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Connecting with the engineering community and local STEM ecosystem.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% cover 32%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">2026 · REGIONAL</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Inspire Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">QUALIFIER</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">FTC's top honor — best embodies the FIRST community.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 8% cover 34%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">STATE CHAMP.</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Inspire Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">3RD PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">A podium finish at the Texas State Championship.</p></div>
+        <div style="position:relative;padding:0 0 30px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 10% cover 36%;"><div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;background:#FAB601;border-radius:50%;"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;letter-spacing:.1em;width:120px;">STATE CHAMP.</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;text-transform:uppercase;margin:0;color:#F4F1EA;">Sustain Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#FAB601;">2ND PLACE</span></div><p style="font-size:14px;color:#9A958C;margin:7px 0 0;">Recognized for team sustainability &amp; growth at the Texas State Championship.</p></div>
+        <div style="position:relative;padding:0 0 4px 32px;animation:rvUp linear both;animation-timeline:view();animation-range:entry 12% cover 38%;"><div style="position:absolute;left:-7px;top:3px;width:13px;height:13px;background:#FAB601;border-radius:50%;box-shadow:0 0 0 4px rgba(250,182,1,.18);"></div><div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#FAB601;letter-spacing:.1em;width:120px;">★ WORLDS</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:25px;text-transform:uppercase;margin:0;color:#FAB601;">Think Award</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;color:#F4F1EA;">1ST PLACE</span></div><p style="font-size:14px;color:#C3BDB2;margin:7px 0 0;">Our pinnacle — first place at the FIRST® World Championship for engineering documentation.</p></div>
+      </div>
+    </section>
+
+    <!-- EXPLORE -->
+    <section style="padding:clamp(64px,9vh,110px) clamp(26px,4vw,64px);max-width:1180px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:40px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">03 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Explore the Program</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+      </div>
+      <div class="hm-explore" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+        <a href="Robot.dc.html" style="text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px;" style-hover="border-color:rgba(250,182,1,.5);transform:translateY(-3px);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">03</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin:0;color:#F4F1EA;">The Robot →</h3><p style="font-size:14px;color:#9A958C;margin:auto 0 0;line-height:1.55;">Apollo Mk.1–4 — our DECODE season iterations, in interactive 3D.</p></a>
+        <a href="Chassis.dc.html" style="text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px;" style-hover="border-color:rgba(250,182,1,.5);transform:translateY(-3px);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">04</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin:0;color:#F4F1EA;">Chassis →</h3><p style="font-size:14px;color:#9A958C;margin:auto 0 0;line-height:1.55;">Nine drivetrain concepts — swerve, butterfly, ball drive &amp; more.</p></a>
+        <a href="Outreach.dc.html" style="text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px;" style-hover="border-color:rgba(250,182,1,.5);transform:translateY(-3px);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">05</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin:0;color:#F4F1EA;">Outreach →</h3><p style="font-size:14px;color:#9A958C;margin:auto 0 0;line-height:1.55;">1,200+ people impacted across schools &amp; community events.</p></a>
+        <a href="Mentorship.dc.html" style="text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px;" style-hover="border-color:rgba(250,182,1,.5);transform:translateY(-3px);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">06</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin:0;color:#F4F1EA;">Mentorship →</h3><p style="font-size:14px;color:#9A958C;margin:auto 0 0;line-height:1.55;">Our mentors, the teams we mentor, and how to work with us.</p></a>
+        <a href="Sponsors.dc.html" style="text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px;" style-hover="border-color:rgba(250,182,1,.5);transform:translateY(-3px);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">07</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin:0;color:#F4F1EA;">Sponsors →</h3><p style="font-size:14px;color:#9A958C;margin:auto 0 0;line-height:1.55;">Our partners &amp; six tiers of sponsorship benefits.</p></a>
+        <a href="Portfolios.dc.html" style="text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px;" style-hover="border-color:rgba(250,182,1,.5);transform:translateY(-3px);"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">08</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin:0;color:#F4F1EA;">Portfolios →</h3><p style="font-size:14px;color:#9A958C;margin:auto 0 0;line-height:1.55;">Centerstage, Into the Deep &amp; Decode engineering portfolios.</p></a>
+      </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <section style="position:relative;padding:clamp(70px,11vh,130px) clamp(26px,4vw,64px);border-top:1px solid rgba(250,182,1,.2);overflow:hidden;">
+      <img src="assets/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:320px;opacity:.05;pointer-events:none;">
+      <div style="position:relative;max-width:1180px;">
+        <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(40px,6.5vw,96px);line-height:.86;margin:0;color:#F4F1EA;">Let's build the<br><span style="color:#FAB601;">future together.</span></h2>
+        <p style="font-size:clamp(15px,1.6vw,19px);line-height:1.6;color:#C3BDB2;max-width:520px;margin:24px 0 36px;">Sponsor a rising FTC team, mentor our students, or just say hello. Every spark counts — and support is often tax-deductible.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+          <a href="mailto:powerbreakers22045@gmail.com" style="background:#FAB601;color:#0a0908;padding:17px 32px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;" style-hover="background:#ffc62b;">Sponsor the Power Breakers →</a>
+          <a href="https://www.instagram.com/powerbreakers_22045" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;color:#C3BDB2;text-decoration:none;" style-hover="color:#FAB601;">@powerbreakers_22045 ↗</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:30px;margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;font-size:12px;color:#8E887E;line-height:1.8;">
+          <div><span style="color: rgb(250, 182, 1);">MAIL //</span> powerbreakersftc@gmail.com</div>
+          <div><span style="color:#FAB601;">TEAM //</span> Vasu Kolla · 281-236-5143</div>
+          <div><span style="color:#FAB601;">TEAM //</span> Sujan Gade · 404-790-3609</div>
+          <div><span style="color:#FAB601;">BASE //</span> Sugar Land, Texas</div>
+        </div>
+        <div style="margin-top:40px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6E685E;">© 2026 POWER BREAKERS · FIRST® TECH CHALLENGE TEAM #22045 · SPARKING INNOVATION, TOGETHER ⚡</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.rootRef = React.createRef(); this.heroBgRef = React.createRef(); }
+  componentDidMount(){
+    const root = this.rootRef.current; if(!root) return;
+    const cio = new IntersectionObserver((entries)=>{ entries.forEach((e)=>{ if(e.isIntersecting){ this.animateCount(e.target); cio.unobserve(e.target);} }); }, { threshold:0.5 });
+    root.querySelectorAll('[data-count-to]').forEach((el)=> cio.observe(el));
+    if(!CSS || !CSS.supports || !CSS.supports('animation-timeline: scroll()')){
+      this.onScroll = ()=>{ const y = window.scrollY||0; if(window.innerWidth>880 && this.heroBgRef.current) this.heroBgRef.current.style.transform = 'scale(1.05) translateY(' + (y*0.05) + 'px)'; };
+      window.addEventListener('scroll', this.onScroll, { passive:true });
+    }
+  }
+  componentWillUnmount(){ if(this.onScroll) window.removeEventListener('scroll', this.onScroll); }
+  animateCount(el){
+    const to = parseFloat(el.getAttribute('data-count-to'));
+    const suffix = el.getAttribute('data-count-suffix')||'';
+    const prefix = el.getAttribute('data-count-prefix')||'';
+    const dur = 1600, start = performance.now();
+    const step = (now)=>{ const p = Math.min(1,(now-start)/dur); const e = 1-Math.pow(1-p,3); el.textContent = prefix + Math.round(to*e).toLocaleString() + suffix; if(p<1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  renderVals(){ return { rootRef: this.rootRef, heroBgRef: this.heroBgRef }; }
+}
+</script>
+</body>
+</html>
