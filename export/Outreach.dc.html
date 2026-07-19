@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+@keyframes pbBlink{0%,49%{opacity:1;}50%,100%{opacity:.25;}}
+.site-main{margin-left:248px;padding-top:38px;}
+.ot-stats{display:grid;grid-template-columns:repeat(4,1fr);}
+.ot-notable{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px;}
+.ot-schools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.ot-events{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media (max-width:1000px){.ot-notable{grid-template-columns:1fr 1fr;}.ot-schools{grid-template-columns:1fr 1fr;}.ot-events{grid-template-columns:1fr 1fr;}}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}.ot-stats{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.ot-notable{grid-template-columns:1fr;}.ot-schools{grid-template-columns:1fr;}.ot-events{grid-template-columns:1fr;}}
+</style>
+</helmet>
+<div data-screen-label="Outreach" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="outreach" hint-size="100%,0"></dc-import>
+  <main ref="{{ rootRef }}" class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">05 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Outreach &amp; Impact</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        <a href="#events" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#FAB601;white-space:nowrap;text-decoration:none;" style-hover="color:#ffc62b;">UPCOMING EVENTS ↓</a>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">We Don't Just<br><span style="color:#FAB601;">Build Robots.</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:720px;margin:24px 0 0;">Across schools, festivals, and STEM nights, we've put robotics in front of more than a thousand kids — and helped launch new teams along the way. Here's the record, year over year.</p>
+    </section>
+
+    <!-- STATS -->
+    <section style="padding:clamp(36px,5vh,56px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div class="ot-stats" style="border:1px solid rgba(255,255,255,.1);border-radius:4px;overflow:hidden;background:rgba(6,5,4,.6);">
+        <div style="padding:26px 24px;border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(30px,3.4vw,46px);color:#FAB601;line-height:1;"><span data-count-to="1200" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;margin-top:8px;">PEOPLE IMPACTED</div></div>
+        <div style="padding:26px 24px;border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(30px,3.4vw,46px);color:#FAB601;line-height:1;"><span data-count-to="4000" data-count-suffix="+">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;margin-top:8px;">PERSON-HOURS</div></div>
+        <div style="padding:26px 24px;border-right:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(30px,3.4vw,46px);color:#FAB601;line-height:1;"><span data-count-to="9" data-count-suffix="">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;margin-top:8px;">SCHOOLS REACHED</div></div>
+        <div style="padding:26px 24px;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(30px,3.4vw,46px);color:#FAB601;line-height:1;"><span data-count-to="30" data-count-suffix="">0</span></div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8E887E;margin-top:8px;">KIDS MENTORED WEEKLY</div></div>
+      </div>
+    </section>
+
+    <!-- NOTABLE -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#FAB601;margin-bottom:22px;">// FLAGSHIP OUTREACHES</div>
+      <div class="ot-notable">
+        <div style="grid-row:span 2;border:1px solid rgba(250,182,1,.25);border-radius:6px;overflow:hidden;background:#0c0b09;display:flex;flex-direction:column;">
+          <img src="assets/outreach-1.png" alt="Dulles Math & Science Night booth" style="width:100%;height:280px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.08);">
+          <div style="padding:24px;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#0a0908;background:#FAB601;padding:4px 9px;border-radius:3px;">500+ REACHED</span></div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:27px;text-transform:uppercase;margin:0 0 10px;color:#F4F1EA;line-height:1;">Dulles HS Math &amp; Science Night</h3>
+            <p style="font-size:14px;line-height:1.6;color:#C3BDB2;margin:0;">Over 300 elementary &amp; middle-schoolers attended, plus ~200 high-school volunteers. Our booth was one of the most popular — with lines to see and drive the robot and learn about FIRST.</p>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <img src="assets/outreach-2.png" alt="CCFFN booth" style="width:100%;height:150px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.08);">
+          <div style="padding:20px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;">1000+ ATTENDEES</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;margin:6px 0 8px;color:#F4F1EA;line-height:1;">CCFFN @ Cornerstone</h3><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0;">Co-hosted a booth with teams 14503, 19947 &amp; 21386 at Crazy Chameleon Family Fun Night — ~300 stopped by ours.</p></div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <img src="assets/outreach-3.png" alt="Honor Roll School visit" style="width:100%;height:150px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.08);">
+          <div style="padding:20px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;">~300 STUDENTS</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;margin:6px 0 8px;color:#F4F1EA;line-height:1;">The Honor Roll School</h3><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0;">Met every student in grades 5–8 and ran a STEM challenge. So impactful the school started its own robotics club.</p></div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <img src="assets/outreach-4.png" alt="Cornerstone weekly mentoring" style="width:100%;height:150px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.08);">
+          <div style="padding:20px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;">WEEKLY · 30 KIDS</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;margin:6px 0 8px;color:#F4F1EA;line-height:1;">Cornerstone Elementary</h3><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0;">After two showcase visits, we now mentor their robotics club every Monday — teaching engineering, coding &amp; problem-solving.</p></div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;background:#0c0b09;">
+          <img src="assets/outreach-5.png" alt="Discovery Green STEM" style="width:100%;height:150px;object-fit:cover;border-bottom:1px solid rgba(255,255,255,.08);">
+          <div style="padding:20px;"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;">~300 INTERACTIONS</span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;margin:6px 0 8px;color:#F4F1EA;line-height:1;">Discovery Green STEM</h3><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:0;">A multi-day, free STEM spring-break event in Houston where ~300 people interacted with our booth.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS / MORE -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// SCHOOLS &amp; CLUBS VISITED</div>
+      <div class="ot-schools">
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0;color:#F4F1EA;">Anne Sullivan Elem.</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;color:#FAB601;">75</span></div><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:8px 0 0;">Got the younger generation excited about tech — all 75 club members learned about FIRST and how to get involved.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0;color:#F4F1EA;">Sartartia Middle</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;color:#FAB601;">~50</span></div><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:8px 0 0;">Taught their coding &amp; robotics club (grades 6–8) about our robot's systems and helped them solve their own challenges.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0;color:#F4F1EA;">Crockett Middle</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;color:#FAB601;">~40</span></div><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:8px 0 0;">Raised awareness for robotics with the club and talked through setting up an FLL team using LEGO.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0;color:#F4F1EA;">Sugar Land Fall Fest</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;color:#FAB601;">~100</span></div><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:8px 0 0;">A booth aimed at elementary–middle schoolers, informing nearly 100 attendees &amp; parents about FIRST and FLL.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0;color:#F4F1EA;">OnShape Tutorials</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;color:#FAB601;">100s</span></div><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:8px 0 0;">A free, multi-part CAD-for-FTC video series with hundreds of views, helping teams everywhere learn Onshape.</p></div>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#0c0b09;padding:22px;"><div style="display:flex;align-items:baseline;justify-content:space-between;"><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin:0;color:#F4F1EA;">Open-Source CAD</h3><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;color:#FAB601;">ALL</span></div><p style="font-size:13px;line-height:1.55;color:#9A958C;margin:8px 0 0;">Every robot CAD from this season is fully open-source and public on Onshape for any team to study.</p></div>
+      </div>
+    </section>
+
+    <!-- UPCOMING EVENTS CALENDAR -->
+    <section id="events" style="padding:clamp(48px,7vh,80px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;scroll-margin-top:60px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:18px;">
+        <span style="width:9px;height:9px;background:#FAB601;border-radius:50%;animation:pbBlink 1.6s steps(1) infinite;"></span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(26px,3vw,40px);text-transform:uppercase;letter-spacing:.02em;color:#F4F1EA;">Upcoming Events</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+      </div>
+      <p style="font-size:15px;line-height:1.6;color:#9A958C;max-width:620px;margin:0 0 26px;">Our live season calendar — meets, outreach, and build sessions. The banner at the top of every page highlights anything within the next two weeks.</p>
+
+      <div ref="{{ eventsRef }}" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:26px;"></div>
+
+      <div style="border:1px solid rgba(255,255,255,.12);border-radius:6px;overflow:hidden;background:#0c0b09;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(6,5,4,.6);">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#8E887E;">SEASON CALENDAR · GOOGLE SHEETS</span>
+          <a href="https://docs.google.com/spreadsheets/d/1MlXQ0CcQ4rNJtQGyZKeelhrDZXokTlo6zC0bokP1c48/edit?gid=1487886791" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#FAB601;text-decoration:none;" style-hover="color:#ffc62b;">Open in Google Sheets ↗</a>
+        </div>
+        <iframe src="https://docs.google.com/spreadsheets/d/1MlXQ0CcQ4rNJtQGyZKeelhrDZXokTlo6zC0bokP1c48/htmlembed?gid=1487886791&amp;widget=true&amp;headers=false&amp;chrome=false" title="Power Breakers Season Calendar" style="width:100%;height:560px;border:0;display:block;background:#fff;"></iframe>
+      </div>
+      <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#5d584f;line-height:1.7;">// If the calendar shows a sign-in prompt, set the sheet's sharing to "Anyone with the link · Viewer". Edit the events list (and the top banner) in <span style="color:#9A958C;">Chrome.dc.html</span>.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){ super(props); this.rootRef = React.createRef(); this.eventsRef = React.createRef();
+    this.events = [
+      { name: 'Summer Build Season Kickoff', date: '2026-06-28', location: 'Team Workshop' },
+      { name: 'OnShape CAD Workshop', date: '2026-07-06', location: 'Cornerstone Elem.' },
+      { name: 'Discovery Green STEM Day', date: '2026-07-18', location: 'Houston, TX' },
+      { name: 'Fall Fest Outreach Booth', date: '2026-10-10', location: 'Sugar Land' },
+      { name: 'DECODE League Meet #1', date: '2026-11-14', location: 'Houston, TX' },
+    ];
+  }
+  componentDidMount(){
+    const root = this.rootRef.current;
+    if(root){
+      const cio = new IntersectionObserver((entries)=>{ entries.forEach((e)=>{ if(e.isIntersecting){ this.animateCount(e.target); cio.unobserve(e.target);} }); }, { threshold:0.5 });
+      root.querySelectorAll('[data-count-to]').forEach((el)=> cio.observe(el));
+    }
+    this.renderEvents();
+  }
+  renderEvents(){
+    const el = this.eventsRef.current; if(!el) return;
+    const today = new Date('2026-06-25T00:00:00');
+    const fmt = (d)=> d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+    const list = this.events.map(e=>{ const d=new Date(e.date+'T00:00:00'); return Object.assign({},e,{d,days:Math.round((d-today)/86400000)}); }).filter(e=>e.days>=0).sort((a,b)=>a.days-b.days);
+    el.innerHTML = list.map(e=>{
+      const soon = e.days<=14;
+      const tag = e.days===0?'TODAY':(e.days===1?'TOMORROW':'IN '+e.days+' DAYS');
+      return '<div style="border:1px solid '+(soon?'rgba(250,182,1,.4)':'rgba(255,255,255,.1)')+';border-radius:5px;background:'+(soon?'rgba(250,182,1,.06)':'#0c0b09')+';padding:16px 18px;">'
+        + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9.5px;letter-spacing:.12em;color:'+(soon?'#FAB601':'#8E887E')+';margin-bottom:8px;">'+(soon?tag:fmt(e.d).toUpperCase())+'</div>'
+        + '<div style="font-family:\'Saira Condensed\',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:#F4F1EA;line-height:1.05;">'+e.name+'</div>'
+        + '<div style="font-size:12.5px;color:#9A958C;margin-top:6px;">'+fmt(e.d)+' &middot; '+e.location+'</div>'
+        + '</div>';
+    }).join('');
+  }
+  animateCount(el){
+    const to=parseFloat(el.getAttribute('data-count-to')); const suffix=el.getAttribute('data-count-suffix')||''; const dur=1500,start=performance.now();
+    const step=(now)=>{ const p=Math.min(1,(now-start)/dur); const e=1-Math.pow(1-p,3); el.textContent=Math.round(to*e).toLocaleString()+suffix; if(p<1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  renderVals(){ return { rootRef:this.rootRef, eventsRef:this.eventsRef }; }
+}
+</script>
+</body>
+</html>

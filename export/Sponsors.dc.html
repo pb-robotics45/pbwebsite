@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+.site-main{margin-left:248px;padding-top:38px;}
+.sp-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.sp-tier-table{min-width:760px;}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}.sp-logos{grid-template-columns:1fr 1fr;}}
+</style>
+</helmet>
+<div data-screen-label="Sponsors" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="sponsors" hint-size="100%,0"></dc-import>
+  <main class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">07 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Sponsors &amp; Partners</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E887E;white-space:nowrap;">$20K RAISED · 3 SEASONS</span>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">Powered<br><span style="color:#FAB601;">By Partners</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:700px;margin:24px 0 0;">Our sponsors fund registration, robot parts, travel, and outreach — and most support is tax-deductible. Here's who powers us, and exactly what each level unlocks.</p>
+    </section>
+
+    <!-- PRESENTING -->
+    <section style="padding:clamp(40px,6vh,60px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#FAB601;margin-bottom:18px;">// PRESENTING SPONSOR</div>
+      <div style="border:2px solid rgba(250,182,1,.6);border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#13110c,#0a0908);display:grid;grid-template-columns:1fr 1.3fr;align-items:stretch;box-shadow:0 0 90px rgba(250,182,1,.8),0 0 24px rgba(250,182,1,.9);" class="sp-present">
+        <div style="background:#0a0908;border-right:1px solid rgba(250,182,1,.35);display:flex;align-items:center;justify-content:center;padding:48px;"><img src="assets/sp-google.png" alt="Google" style="max-width:70%;max-height:80px;object-fit:contain;"></div>
+        <div style="padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;justify-content:center;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#0a0908;background:#FAB601;padding:5px 11px;border-radius:3px;align-self:flex-start;margin-bottom:14px;">★ PRESENTING · STORM TIER</span>
+          <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:clamp(30px,3.6vw,46px);text-transform:uppercase;line-height:.92;margin:0 0 12px;color:#F4F1EA;">Google</h2>
+          <p style="font-size:15px;line-height:1.6;color:#C3BDB2;margin:0;">Our presenting sponsor — powering the Power Breakers across the season and helping connect us with Googler mentors for fundraising and engineering.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT SPONSORS BY TIER -->
+    <section style="padding:clamp(40px,6vh,60px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// CURRENT SPONSORS</div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:0 0 12px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:#FAB601;">Voltage</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8E887E;">$1K–2.5K</span><span style="flex:1;height:1px;background:rgba(255,255,255,.08);"></span></div>
+      <div class="sp-logos" style="margin-bottom:26px;">
+        <div ref="{{ auredOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;box-shadow:0 0 60px rgba(250,182,1,.65),0 0 14px rgba(250,182,1,.75);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ auredEnter }}" onMouseLeave="{{ auredLeave }}">
+          <img src="assets/sp-auredia.png" alt="Auredia" style="width:100%;height:100%;object-fit:contain;padding:16px;box-sizing:border-box;">
+          <div ref="{{ auredOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">Auredia</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Voltage Sponsor · manufacturing startup led by mentor Ashe Menon.</div>
+          </div>
+        </div>
+        <div ref="{{ polyOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;box-shadow:0 0 60px rgba(250,182,1,.65),0 0 14px rgba(250,182,1,.75);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ polyEnter }}" onMouseLeave="{{ polyLeave }}">
+          <img src="assets/sp-polymaker.png" alt="Polymaker" style="width:100%;height:100%;object-fit:contain;padding:16px;box-sizing:border-box;">
+          <div ref="{{ polyOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">Polymaker</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Voltage Sponsor · 3D-printing filament partner.</div>
+          </div>
+        </div>
+        <div ref="{{ chipOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;box-shadow:0 0 60px rgba(250,182,1,.65),0 0 14px rgba(250,182,1,.75);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ chipEnter }}" onMouseLeave="{{ chipLeave }}">
+          <img src="assets/sp-chipotle.png" alt="Chipotle" style="width:100%;height:100%;object-fit:contain;padding:16px;box-sizing:border-box;">
+          <div ref="{{ chipOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">Chipotle</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Voltage Sponsor · community fundraising nights.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:0 0 12px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:#FAB601;">Surge</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8E887E;">$2.5K–5K</span><span style="flex:1;height:1px;background:rgba(255,255,255,.08);"></span></div>
+      <div class="sp-logos" style="margin-bottom:26px;">
+        <div ref="{{ haasOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;box-shadow:0 0 38px rgba(250,182,1,.46),0 0 9px rgba(250,182,1,.5);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ haasEnter }}" onMouseLeave="{{ haasLeave }}">
+          <img src="assets/sp-genehaas.png" alt="Gene Haas Foundation" style="width:100%;height:100%;object-fit:contain;padding:10px;box-sizing:border-box;">
+          <div ref="{{ haasOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">Gene Haas Foundation</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Surge Sponsor · CNC machining scholarship &amp; grant support.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:0 0 12px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:#FAB601;">Circuit</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8E887E;">$500–1K</span><span style="flex:1;height:1px;background:rgba(255,255,255,.08);"></span></div>
+      <div class="sp-logos" style="margin-bottom:26px;">
+        <div ref="{{ teesOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;box-shadow:0 0 20px rgba(250,182,1,.28),0 0 5px rgba(250,182,1,.34);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ teesEnter }}" onMouseLeave="{{ teesLeave }}">
+          <img src="assets/sp-frctees.png" alt="FRCtees" style="width:100%;height:100%;object-fit:contain;padding:28px;box-sizing:border-box;">
+          <div ref="{{ teesOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">FRCtees</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Circuit Sponsor · team apparel &amp; spirit wear.</div>
+          </div>
+        </div>
+        <div ref="{{ pulsarOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;box-shadow:0 0 20px rgba(250,182,1,.28),0 0 5px rgba(250,182,1,.34);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ pulsarEnter }}" onMouseLeave="{{ pulsarLeave }}">
+          <img src="assets/sp-pulsar.png" alt="Pulsar Precision" style="width:100%;height:100%;object-fit:contain;padding:26px;box-sizing:border-box;">
+          <div ref="{{ pulsarOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">Pulsar Precision</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Circuit Sponsor · precision machining &amp; fabrication.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:0 0 12px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:#FAB601;">Spark</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8E887E;">$0–500</span><span style="flex:1;height:1px;background:rgba(255,255,255,.08);"></span></div>
+      <div class="sp-logos">
+        <div ref="{{ ktigerOuterRef }}" style="position:relative;background:#f5dfa0;border-radius:4px;height:110px;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 8px rgba(250,182,1,.14),0 0 2px rgba(250,182,1,.18);transition:box-shadow .25s,transform .25s;" onMouseEnter="{{ ktigerEnter }}" onMouseLeave="{{ ktigerLeave }}">
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:#0a0908;text-align:center;line-height:1;letter-spacing:.02em;">KTiger<br>Taekwondo</span>
+          <div ref="{{ ktigerOverlayRef }}" style="position:absolute;inset:0;background:rgba(10,9,8,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:opacity .25s;pointer-events:none;">
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;color:#FAB601;margin-bottom:6px;">KTiger Taekwondo</div>
+            <div style="font-size:11px;line-height:1.5;color:#D8D2C7;">Spark Sponsor · local community partner.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIER BENEFIT MATRIX -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:clamp(26px,3vw,40px);text-transform:uppercase;color:#FAB601;">$ Invest In Us</span></div>
+      <p style="font-size:14.5px;line-height:1.6;color:#9A958C;max-width:640px;margin:0 0 24px;">Benefits are cumulative — each tier includes everything before it. Custom &amp; in-kind sponsorships are always welcome.</p>
+      <div style="overflow-x:auto;border:1px solid rgba(255,255,255,.1);border-radius:6px;">
+        <div class="sp-tier-table">
+          <div style="display:grid;grid-template-columns:1.7fr repeat(6,1fr);background:#0c0b09;border-bottom:1px solid rgba(255,255,255,.1);">
+            <div style="padding:16px 18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8E887E;">SPONSOR BENEFIT</div>
+            <div style="padding:14px 8px;text-align:center;"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Spark</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$0–500</div></div>
+            <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Circuit</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$.5–1K</div></div>
+            <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Voltage</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$1–2.5K</div></div>
+            <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Surge</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$2.5–5K</div></div>
+            <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(255,255,255,.06);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#F4F1EA;">Lightning</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$5–10K</div></div>
+            <div style="padding:14px 8px;text-align:center;border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.08);"><div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#FAB601;">Storm</div><div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#FAB601;margin-top:3px;">$10K+</div></div>
+          </div>
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="13">
+            <div ref="{{ r.ref }}" style="display:grid;grid-template-columns:1.7fr repeat(6,1fr);border-bottom:1px solid rgba(255,255,255,.06);">
+              <div style="padding:13px 18px;font-size:13px;color:#C3BDB2;">{{ r.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO SPONSOR -->
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;">
+      <div style="border:1px solid rgba(250,182,1,.25);border-radius:8px;background:linear-gradient(135deg,#13110c,#0a0908);padding:clamp(28px,4vw,48px);position:relative;overflow:hidden;">
+        <img src="assets/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:240px;opacity:.06;pointer-events:none;">
+        <div style="position:relative;">
+          <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:clamp(30px,4.4vw,56px);text-transform:uppercase;line-height:.9;margin:0 0 14px;color:#F4F1EA;">How to<br><span style="color:#FAB601;">Sponsor Us</span></h2>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:780px;margin:22px 0 30px;" class="sp-steps">
+            <div><div style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:30px;color:#FAB601;">01</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;color:#F4F1EA;margin:4px 0 6px;">Reach out</div><p style="font-size:13px;color:#9A958C;line-height:1.55;margin:0;">Email us or DM on Instagram to start the conversation.</p></div>
+            <div><div style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:30px;color:#FAB601;">02</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;color:#F4F1EA;margin:4px 0 6px;">Pick a tier</div><p style="font-size:13px;color:#9A958C;line-height:1.55;margin:0;">Choose a level — or a custom / in-kind contribution.</p></div>
+            <div><div style="font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:30px;color:#FAB601;">03</div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;color:#F4F1EA;margin:4px 0 6px;">Power a team</div><p style="font-size:13px;color:#9A958C;line-height:1.55;margin:0;">We activate your benefits — most gifts are tax-deductible.</p></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+            <a href="mailto:powerbreakers22045@gmail.com" style="background:#FAB601;color:#0a0908;padding:16px 30px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;" style-hover="background:#ffc62b;">Become a Sponsor →</a>
+            <a href="https://www.instagram.com/powerbreakers_22045" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#C3BDB2;text-decoration:none;" style-hover="color:#FAB601;">@powerbreakers_22045 ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    // benefit matrix: 6 tiers [Spark, Circuit, Voltage, Surge, Lightning, Storm]
+    this.data = [
+      ['Logo on our team website',            [1,1,1,1,1,1]],
+      ['Highlighted website listing',         [0,1,1,1,1,1]],
+      ['Logo at our tournament booth',        [0,1,1,1,1,1]],
+      ['Social-media thank-you post',         [0,1,1,1,1,1]],
+      ['Logo on team apparel',                [0,0,1,1,1,1]],
+      ['Highlighted logo on apparel',         [0,0,0,1,1,1]],
+      ['Logo on our competition robot',       [0,0,0,1,1,1]],
+      ['Recognition at outreach events',      [0,0,0,1,1,1]],
+      ['Larger robot logo placement',         [0,0,0,0,1,1]],
+      ['Dedicated website spotlight',         [0,0,0,0,1,1]],
+      ['Specialized thank-you video',         [0,0,0,0,1,1]],
+      ['"Powered by [you]" at tournaments',   [0,0,0,0,0,1]],
+      ['Largest logo on apparel & robot',     [0,0,0,0,0,1]],
+    ];
+    this.rows = this.data.map((d)=> ({ label: d[0], cells: d[1], ref: React.createRef() }));
+    // sponsor logo tiles: base glow per tier, boosted + lifted on hover
+    this.tileGlow = {
+      aured:  '0 0 60px rgba(250,182,1,.65),0 0 14px rgba(250,182,1,.75)',
+      poly:   '0 0 60px rgba(250,182,1,.65),0 0 14px rgba(250,182,1,.75)',
+      chip:   '0 0 60px rgba(250,182,1,.65),0 0 14px rgba(250,182,1,.75)',
+      haas:   '0 0 38px rgba(250,182,1,.46),0 0 9px rgba(250,182,1,.5)',
+      tees:   '0 0 20px rgba(250,182,1,.28),0 0 5px rgba(250,182,1,.34)',
+      pulsar: '0 0 20px rgba(250,182,1,.28),0 0 5px rgba(250,182,1,.34)',
+      ktiger: '0 0 8px rgba(250,182,1,.14),0 0 2px rgba(250,182,1,.18)',
+    };
+    this.tileGlowHover = {
+      aured:  '0 12px 80px rgba(250,182,1,.85),0 0 24px rgba(250,182,1,.9)',
+      poly:   '0 12px 80px rgba(250,182,1,.85),0 0 24px rgba(250,182,1,.9)',
+      chip:   '0 12px 80px rgba(250,182,1,.85),0 0 24px rgba(250,182,1,.9)',
+      haas:   '0 12px 56px rgba(250,182,1,.62),0 0 18px rgba(250,182,1,.66)',
+      tees:   '0 12px 34px rgba(250,182,1,.4),0 0 12px rgba(250,182,1,.46)',
+      pulsar: '0 12px 34px rgba(250,182,1,.4),0 0 12px rgba(250,182,1,.46)',
+      ktiger: '0 12px 20px rgba(250,182,1,.24),0 0 8px rgba(250,182,1,.28)',
+    };
+    this.tileKeys = Object.keys(this.tileGlow);
+    this.overlayRefs = {};
+    this.outerRefs = {};
+    this.tileKeys.forEach((k)=>{ this.overlayRefs[k] = React.createRef(); this.outerRefs[k] = React.createRef(); });
+  }
+  hoverTile(key, on){
+    const overlay = this.overlayRefs[key] && this.overlayRefs[key].current;
+    const outer = this.outerRefs[key] && this.outerRefs[key].current;
+    if (overlay) overlay.style.opacity = on ? '1' : '0';
+    if (outer){
+      outer.style.transform = on ? 'translateY(-7px)' : 'translateY(0)';
+      outer.style.boxShadow = on ? this.tileGlowHover[key] : this.tileGlow[key];
+    }
+  }
+  componentDidMount(){
+    this.rows.forEach((r)=>{
+      const host = r.ref.current; if(!host) return;
+      r.cells.forEach((on, ci)=>{
+        const isStorm = ci === 5;
+        const cell = document.createElement('div');
+        cell.style.cssText = 'display:flex;align-items:center;justify-content:center;font-size:15px;color:'+(on?'#FAB601':'#4a463f')+';'+(ci>0?'border-left:1px solid rgba(255,255,255,.05);':'')+(isStorm?'border-left:1px solid rgba(250,182,1,.4);background:rgba(250,182,1,.06);':'');
+        cell.textContent = on ? '✓' : '–';
+        host.appendChild(cell);
+      });
+    });
+  }
+  renderVals(){
+    const tiles = {};
+    this.tileKeys.forEach((k)=>{
+      tiles[k+'OverlayRef'] = this.overlayRefs[k];
+      tiles[k+'OuterRef'] = this.outerRefs[k];
+      tiles[k+'Enter'] = ()=> this.hoverTile(k, true);
+      tiles[k+'Leave'] = ()=> this.hoverTile(k, false);
+    });
+    return Object.assign({ rows: this.rows.map((r)=> ({ label: r.label, ref: r.ref })) }, tiles);
+  }
+}
+</script>
+</body>
+</html>

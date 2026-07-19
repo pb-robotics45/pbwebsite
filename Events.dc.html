@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0908;color:#F4F1EA;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#FAB601;color:#0a0908;}
+@keyframes rcPulse{0%,100%{box-shadow:0 0 0 0 rgba(250,182,1,.55),0 8px 30px rgba(250,182,1,.35);}50%{box-shadow:0 0 0 14px rgba(250,182,1,0),0 8px 40px rgba(250,182,1,.55);}}
+@keyframes rcSheen{0%{transform:translateX(-140%) skewX(-18deg);}60%,100%{transform:translateX(320%) skewX(-18deg);}}
+@keyframes rcArrow{0%,100%{transform:translateX(0);}50%{transform:translateX(5px);}}
+.rc-reg{position:relative;overflow:hidden;animation:rcPulse 1.9s ease-in-out infinite;}
+.rc-reg:hover{background:#ffc62b !important;transform:translateY(-2px);}
+.rc-reg .rc-sheen{position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:rcSheen 2.6s ease-in-out infinite;pointer-events:none;}
+.rc-reg .rc-arrow{display:inline-block;animation:rcArrow 1s ease-in-out infinite;}
+.site-main{margin-left:248px;padding-top:38px;}
+.ev-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:32px;align-items:start;}
+@media (max-width:980px){.ev-wrap{grid-template-columns:1fr;}}
+@media (max-width:880px){.site-main{margin-left:0;padding-top:92px;}}
+</style>
+</helmet>
+<div data-screen-label="Events" style="position:relative;background:#0a0908;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;min-height:100vh;overflow-x:clip;">
+  <dc-import name="Chrome" active="events" sub="powerup" hint-size="100%,0"></dc-import>
+  <main class="site-main">
+    <section style="padding:clamp(48px,7vh,86px) clamp(26px,4vw,64px) 0;max-width:1240px;">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#FAB601;letter-spacing:.1em;">09 //</span>
+        <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.14em;color:#F4F1EA;">Events — Power Up</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,.12);"></span>
+      </div>
+      <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,92px);line-height:.86;margin:0;color:#F4F1EA;">Power Up,<br><span style="color:#FAB601;">Free of Charge</span></h1>
+      <p style="font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:#C3BDB2;max-width:760px;margin:24px 0 0;">Power Up is our free, three-stage mentorship circuit for rookie and 2nd-year FTC teams — from a pre-kickoff skills workshop, through post-kickoff strategy &amp; prototyping, to a pre-league scrimmage that stress-tests your robot before competition. Scan the poster below or hit the link to get plugged in.</p>
+      <a href="https://tinyurl.com/PowerUP22045" target="_blank" class="rc-reg" style="display:inline-flex;align-items:center;gap:12px;background:#FAB601;color:#0a0908;padding:18px 34px;border-radius:6px;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:clamp(20px,2.4vw,28px);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;margin-top:30px;transition:transform .2s,background .2s;"><span class="rc-sheen"></span>Sign Up — Free for Rookie Teams <span class="rc-arrow">→</span></a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8E887E;margin-top:12px;">3-STAGE MENTORSHIP CIRCUIT · ROOKIE &amp; 2ND-YEAR TEAMS · FREE</div>
+    </section>
+
+    <section style="padding:clamp(44px,6vh,72px) clamp(26px,4vw,64px) clamp(70px,10vh,110px);max-width:1240px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#8E887E;margin-bottom:22px;">// THE POWER UP CIRCUIT</div>
+      <div class="ev-wrap">
+        <div style="border:1px solid rgba(250,182,1,.3);border-radius:6px;overflow:hidden;background:#000;">
+          <img src="assets/poster-power-up.png" alt="Power Up! — Team 22045's free FTC mentorship circuit poster" style="width:100%;display:block;object-fit:contain;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;background:#0c0b09;padding:24px;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;margin-bottom:8px;">STAGE 01 · PRE-KICKOFF</div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;margin:0 0 8px;color:#F4F1EA;">Skills Workshop</h3>
+            <p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">An in-person hands-on day covering coding, CAD design, build, and FTC BioBuzz coaching.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;background:#0c0b09;padding:24px;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;margin-bottom:8px;">STAGE 02 · RIGHT AFTER KICKOFF</div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;margin:0 0 8px;color:#F4F1EA;">Strategy &amp; Prototyping Workshop</h3>
+            <p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">In-person session to break down the new game and prototype first ideas.</p>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:6px;background:#0c0b09;padding:24px;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#FAB601;margin-bottom:8px;">STAGE 03 · PRE-TOURNAMENT</div>
+            <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;margin:0 0 8px;color:#F4F1EA;">Pre-League Prep &amp; Scrimmage</h3>
+            <p style="font-size:13.5px;line-height:1.6;color:#9A958C;margin:0;">Scrimmage against other teams to test your bot and fix issues under pressure before competition.</p>
+          </div>
+          <a href="https://tinyurl.com/PowerUP22045" target="_blank" class="rc-reg" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#FAB601;color:#0a0908;padding:15px;border-radius:4px;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:transform .2s,background .2s;"><span class="rc-sheen"></span>Sign Up — Free for Rookie Teams <span class="rc-arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>
